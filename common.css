@@ -1,0 +1,41 @@
+.agrishop-input-text {
+    all: unset;
+    padding: 1em;
+    padding-bottom: .5em;
+    box-shadow: 0 2px 0 0 white;
+}
+
+.agrishop-input-button {
+    all: unset;
+    padding: 1em;
+    cursor: pointer;
+    background-color: var(--color2);
+    box-shadow: var(--shadow);
+    border-radius: var(--button-radius);
+}
+
+.agrishop-not-selectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.agrishop-input-anti-button {
+    background-color: transparent;
+    box-shadow: 0 0 0 2px inset white;
+}
+
+.agrishop-panel-standard {
+    padding: 1em;
+    width: 100%;
+    height: min-content;
+    border-radius: var(--panel-radius);
+    background-color: var(--color3);
+    box-shadow: var(--shadow);
+}
+
+.agrishop-input-button:hover {
+    background-color: var(--color1);
+}
+

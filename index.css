@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Mulish&display=swap');
+
+.index-title-container {
+    font-size: 7rem;
+    font-family: 'Dancing Script', cursive;
+    width: 100%;
+}
