@@ -3,7 +3,7 @@
 $GLOBALS["host"] = "localhost";
 $GLOBALS["dbname"] = "test";
 $GLOBALS["username"] = "root";
-$GLOBALS["password"] = "root";
+$GLOBALS["password"] = "";
 
 try {
     $connection = new mysqli($GLOBALS["host"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
@@ -19,10 +19,9 @@ function execute_query($query, $db) {
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
-$data = execute_query("SELECT * FROM insiemi", $connection);
-echo sizeof($data);
+$data = execute_query("SELECT * FROM skumonti", $connection);
 foreach ($data as $d) {
-    echo $d["valore"] . "\n";
+    echo $d["valore"] . "\n" . "Sheeeesh";
 }
 
 ?>
