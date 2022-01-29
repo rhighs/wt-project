@@ -14,26 +14,11 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+    $isAuth = true;
 
-$router->get('/home', function() {
-    return view("index", []);
-});
-
-$router->get('products', function() {
-    return view('products');
-});
-
-$router->get('about', function() {
-    return view('about');
-});
-
-$router->get('contact', function() {
-    return view('contact');
-});
-
-$router->get('products/{pId}', function($pId) {
-    $item = $pId;
-    return view('single-product', [$item]);
+    return view("index", [
+        "title" => "index",
+        "subview" => "home",
+        "isAuthenticated" => $isAuth
+    ]);
 });
