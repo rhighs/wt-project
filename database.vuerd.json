@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -118.63425618199705,
-    "scrollLeft": -18.518518038165567,
+    "scrollTop": -74.0740721526611,
+    "scrollLeft": -85.06944223782311,
     "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
@@ -138,13 +138,13 @@
             "default": "",
             "option": {
               "autoIncrement": false,
-              "primaryKey": false,
+              "primaryKey": true,
               "unique": false,
-              "notNull": false
+              "notNull": true
             },
             "ui": {
               "active": false,
-              "pk": false,
+              "pk": true,
               "fk": false,
               "pfk": false,
               "widthName": 60,
@@ -199,13 +199,59 @@
               "widthDefault": 60
             },
             "id": "bb6ff8b6-ecf0-43bb-b4e1-24ef17f5354c"
+          },
+          {
+            "name": "email",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "27e4f48a-f37a-491f-818d-035a59d8c6eb"
+          },
+          {
+            "name": "password",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "cc658b6c-6c51-4cd2-b1cd-11ae9b8df8f9"
           }
         ],
         "ui": {
           "active": true,
-          "left": 293.0422,
-          "top": 192.5285,
-          "zIndex": 67,
+          "left": 35.8422,
+          "top": 175.8105,
+          "zIndex": 82,
           "widthName": 60,
           "widthComment": 60
         },
