@@ -2,5 +2,7 @@
 /.idea
 Homestead.json
 Homestead.yaml
+node_modules/
+dbkeys.json
 .env
 .phpunit.result.cache
