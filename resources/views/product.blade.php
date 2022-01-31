@@ -1,9 +1,7 @@
-<div class="box" width="100%" height="50%">
-  <article class="media" width="100%" height="100%">
-    <div class="media-left" width="50%" height="100%">
-      <figure class="image">
-        <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image" width="1000px" height="1000px">
-      </figure>
+<div class="box product">
+  <article class="media">
+    <div class="media-left">
+        <img src="https://s1.cs.money/NTSuERw_icon.png" alt="Image">
     </div>
     <div class="media-content">
       <div class="content">

@@ -8,6 +8,7 @@
     <title>{{ $title }}</title>
 
     <link rel="stylesheet" href="{{ url('assets/css/root.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/css/product.css') }}" />
 </head>
 
 <body>
