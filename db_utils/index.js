@@ -1,12 +1,12 @@
-import { SteamMarketParser } from 'steam-market-parser';
 import fetch from "node-fetch";
 import fs from "fs";
 
 const getSkins = async (offset, limit) => {
     let buildUrl = (offset) =>
         `https://inventories.cs.money/5.0/load_bots_inventory/730?buyBonus=40&isStore=true&limit=${limit}&maxPrice=10000&minPrice=1&offset=${offset}&withStack=true`;
-    return await fetch(buildUrl(offset))
-        .then(async res => await res.json());
+    let a = fetch(buildUrl(offset))
+        .then(res => {console.log(res); return res.json();});
+    return a;
 };
 
 const main = async () => {
