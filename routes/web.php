@@ -22,3 +22,13 @@ $router->get('/', function () use ($router) {
         "isAuthenticated" => $isAuth
     ]);
 });
+
+$router->get('/product/{pId}', function() {
+    $isAuth = true;
+
+    return view("index", [
+        "title" => "index",
+        "subview" => "product",
+        "isAuthenticated" => $isAuth
+    ]);
+});
