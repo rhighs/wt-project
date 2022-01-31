@@ -20,9 +20,19 @@
     <!-- footer -->
     <footer class="footer">
         <div class="content has-text-centered">
-            <p>
-                <strong>NFT Monkeys</strong>
-            </p>
+            <div class="columns">
+                <div class="column">
+                    First column
+                </div>
+                <div class="column">
+                    <p>
+                        <strong>SkumontiSkins</strong>
+                    </p>
+                </div>
+                <div class="column">
+                    Third column
+                </div>
+            </div>
         </div>
     </footer>
 </body>
