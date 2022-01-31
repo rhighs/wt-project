@@ -8,6 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Skin extends Model
 {
     use HasFactory;
-    protected $connection = 'pgsql';
-    public $incrementing = false;
 }
