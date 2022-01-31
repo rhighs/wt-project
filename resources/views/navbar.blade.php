@@ -45,7 +45,7 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary">
+                        <a class="button is-info">
                             <strong>Account</strong>
                         </a>
                         <a class="button is-light">
@@ -58,7 +58,7 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary">
+                        <a class="button is-info">
                             <strong>Sign up</strong>
                         </a>
                         <a class="button is-light">

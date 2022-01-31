@@ -25,10 +25,15 @@ $router->get('/', function () use ($router) {
 
 $router->get('/product/{pId}', function() {
     $isAuth = true;
+    $item = [
+        "name" => "sdjfniosdf",
+        "price" => "345"
+    ];
 
     return view("index", [
         "title" => "index",
         "subview" => "product",
-        "isAuthenticated" => $isAuth
+        "isAuthenticated" => $isAuth,
+        "item" => $item
     ]);
 });
