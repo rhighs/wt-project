@@ -13,12 +13,12 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item">
+            <a class="navbar-item" href="/">
                 Home
             </a>
 
-            <a class="navbar-item">
-                Prodotti
+            <a class="navbar-item" href="/skins">
+                Skins
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
@@ -45,7 +45,7 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-info">
+                        <a class="button is-info" href="/account/">
                             <strong>Account</strong>
                         </a>
                         <a class="button is-light">
@@ -58,10 +58,10 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-info">
+                        <a class="button is-info" href="/signup">
                             <strong>Sign up</strong>
                         </a>
-                        <a class="button is-light">
+                        <a class="button is-light" href="/login">
                             Log in
                         </a>
                     </div>

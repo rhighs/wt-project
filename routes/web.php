@@ -38,7 +38,27 @@ $router->get('/product/{pId}', function() {
     ]);
 });
 
-$router->get('/account/{pId}', function() {
+$router->get('/login', function() {
+    $isAuth = false;
+
+    return view("index", [
+        "title" => "Login",
+        "subview" => "login",
+        "isAuthenticated" => $isAuth,
+    ]);
+});
+
+$router->get('/skins', function() {
+    $isAuth = false;
+
+    return view("index", [
+        "title" => "Skins",
+        "subview" => "skins",
+        "isAuthenticated" => $isAuth,
+    ]);
+});
+
+$router->get('/account', function() {
     $isAuth = true;
     $item = [
         "name" => "SkuGas",
