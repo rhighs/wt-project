@@ -42,17 +42,22 @@
 iframe {
     width: 100%;
     height: 100%;
+    position: relative;
+    top: -50px;
+    overflow-y: hidden;
 }
 
-iframe header {
-    display: none !important;
+.iframe-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
 }
 
 @media(min-width: 1200px) {
     .product-img {
         width: max-content;
     }
-    iframe {
+    .iframe-wrapper {
         width: 512px;
         height: 512px;
     }
