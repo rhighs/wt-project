@@ -1,0 +1,26 @@
+.account-image
+{
+    border-style: groove;
+    border-width: 7px;
+    border-color:honeydew;
+}
+
+.account-credentials-container
+{
+    border-style: groove;
+    border-width: 7px;
+    border-color:honeydew;
+}
+
+.account-credentials
+{
+    padding-left: 2%;
+}
+
+.account-transactions
+{
+    width:100%;
+    border-style: groove;
+    border-width: 7px;
+    border-color:honeydew;
+}

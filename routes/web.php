@@ -31,8 +31,24 @@ $router->get('/product/{pId}', function() {
     ];
 
     return view("index", [
-        "title" => "index",
+        "title" => "product",
         "subview" => "product",
+        "isAuthenticated" => $isAuth,
+        "item" => $item
+    ]);
+});
+
+$router->get('/account/{pId}', function() {
+    $isAuth = true;
+    $item = [
+        "name" => "SkuGas",
+        "surname" => "Ricci",
+        "email" => "skugod@gskianto.com"
+    ];
+
+    return view("index", [
+        "title" => "account",
+        "subview" => "account",
         "isAuthenticated" => $isAuth,
         "item" => $item
     ]);
