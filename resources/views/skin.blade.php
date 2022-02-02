@@ -12,9 +12,9 @@
                                 <li id="3d-tab" onclick="openTab(event, '3d');" class="tab"><a>3D</a></li>
                             </ul>
                             <!-- tab content -->
-                            <img id="image" class="content-tab" src="https://s1.cs.money/NTSuERw_icon.png" alt="Image">
+                            <img id="image" class="content-tab" src="{{ $item['imagelink'] }}" alt="Image">
                             <div id="3d" class="iframe-wrapper content-tab" style="display:none">
-                                <iframe id="3d" src="https://3d.cs.money/item/Yx6j1lz" title="3d image"></iframe>
+                                <iframe id="3d" src="{{ $item['link3d'] }}" title="3d image"></iframe>
                             </div>
                         </div>
                     </nav>

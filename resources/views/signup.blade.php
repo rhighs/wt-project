@@ -3,9 +3,13 @@
         <div class="container">
             <div class="columns is-justify-content-center">
                 <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
-                    <form method="POST" action="https://herotofu.com/start" class="box p-5">
+                    <div class="box p-5">
                         <label class="is-block mb-4">
-                            <span class="is-block mb-2">Email address</span>
+                            <span class="is-block mb-2">Nome</span>
+                            <input required type="text" class="input"/>
+                            <span class="is-block mb-2">Cognome</span>
+                            <input required type="text" class="input"/>
+                            <span class="is-block mb-2">Indirizzo email</span>
                             <input required type="email" class="input" placeholder="pinco.pallo@pallino.com" />
                         </label>
 
@@ -20,9 +24,9 @@
                         </div>
 
                         <div class="mb-4">
-                            <button type="submit" class="button is-link px-4">Sign Up</button>
+                            <button type="submit" class="button is-fullwidth is-info px-4">Sign Up</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

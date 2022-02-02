@@ -15,20 +15,12 @@
 
 $router->get("/", "HomeController@index");
 
-$router->get('/product/{pId}', function() {
-    $isAuth = true;
-    $item = [
-        "name" => "sdjfniosdf",
-        "price" => "345"
-    ];
-
-    return view("index", [
-        "title" => "product",
-        "subview" => "product",
-        "isAuthenticated" => $isAuth,
-        "item" => $item
-    ]);
+$router->get('/skin/{id}', function($id) use ($router) {
+    $controller = $router->app->make('App\Http\Controllers\SkinController');
+    return $controller->index($id);
 });
+
+$router->get('/signup', "SignUpController@index");
 
 $router->get('/login', function() {
     $isAuth = false;

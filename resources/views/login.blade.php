@@ -1,41 +1,25 @@
 <section class="hero is-medium">
-  <div class="hero-body">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-          <form action="" class="box">
-            <div class="field">
-              <label for="" class="label">Email</label>
-              <div class="control has-icons-left">
-                <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required>
-                <span class="icon is-small is-left">
-                  <i class="fa fa-envelope"></i>
-                </span>
-              </div>
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-justify-content-center">
+                <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
+                    <div class="box p-5">
+                        <label class="is-block mb-4">
+                            <span class="is-block mb-2">Indirizzo email</span>
+                            <input required type="email" class="input" />
+                        </label>
+
+                        <label class="is-block mb-4">
+                            <span class="is-block mb-2">Password</span>
+                            <input name="password" type="password" class="input" minlength="6" required />
+                        </label>
+
+                        <div class="mb-4">
+                            <button type="submit" class="button is-fullwidth is-info px-4">Login</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="field">
-              <label for="" class="label">Password</label>
-              <div class="control has-icons-left">
-                <input type="password" placeholder="*******" class="input" required>
-                <span class="icon is-small is-left">
-                  <i class="fa fa-lock"></i>
-                </span>
-              </div>
-            </div>
-            <div class="field">
-              <label for="" class="checkbox">
-                <input type="checkbox">
-                Ricordati di me
-              </label>
-            </div>
-            <div class="field">
-              <button class="button is-info">
-                Login
-              </button>
-            </div>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 </section>
