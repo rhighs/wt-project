@@ -73,3 +73,13 @@ $router->get('/account', function() {
         "item" => $item
     ]);
 });
+
+$router->get('/contact', function() {
+    $isAuth = true;
+
+    return view("index", [
+        "title" => "contact",
+        "subview" => "contact",
+        "isAuthenticated" => $isAuth,
+    ]);
+});

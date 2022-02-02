@@ -30,7 +30,7 @@
                     <a class="navbar-item">
                         Chi siamo
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item" href="/contact">
                         Contatti
                     </a>
                     <hr class="navbar-divider">
