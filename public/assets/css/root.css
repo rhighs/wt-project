@@ -8,5 +8,6 @@ html, body {
     overflow-x: hidden;
 }
 
-:root {
+body::-webkit-scrollbar {
+    display: none;
 }
