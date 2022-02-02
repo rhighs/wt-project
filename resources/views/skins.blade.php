@@ -1,10 +1,14 @@
+<section class="hero is-medium is-info">
+    <div class="hero-body">
+        <div class="container is-centered">
+            <p class="title">
+                Shop
+            </p>
+        </div>
+    </div>
+</section>
 <div class="container">
     <div class="section">
-        <div class="columns">
-            <div class="column has-text-centered">
-                <h1 class="title" style="color: ghostwhite;">Bulma Card Layout Template</h1><br>
-            </div>
-        </div>
         <div id="app" class="row columns is-multiline">
             @for ($i = 0; $i < sizeof($skins); $i++) <div v-for="card in cardData" key="card.id" class="column is-4">
                 <div class="card large">

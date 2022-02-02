@@ -16,7 +16,13 @@ body::-webkit-scrollbar {
     padding-bottom: 15px;
 }
 
-#logo {
-    width: 90px;
-    height: 90px;
+#logo, .navbar-item img {
+    width: 70px;
+    height: 70px;
+    max-height: none;
+}
+
+.navbar-burger {
+    margin-top: auto;
+    margin-bottom: auto;
 }
