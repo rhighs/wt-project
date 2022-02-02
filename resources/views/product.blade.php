@@ -1,5 +1,6 @@
 <div class="box" style="background-image: url({{ url('assets/img/background.jpg') }});">
-    <script type="text/javascript" src="{{ url('assets/js/tabs.js') }}"></script>
+    <script type="text/javascript" src="{{ url('assets/js/product/tabs.js') }}"></script>
+    
     <section class="section product">
         <article class="product-article">
             <div class="columns">

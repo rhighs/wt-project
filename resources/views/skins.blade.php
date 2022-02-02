@@ -6,33 +6,19 @@
             </div>
         </div>
         <div id="app" class="row columns is-multiline">
-            @for ($i = 0; $i < 10; $i++)
+            @for ($i = 0; $i < sizeof($skins); $i++)
             <div v-for="card in cardData" key="card.id" class="column is-4">
                 <div class="card large">
-                    <div class="card-image">
-                        <figure class="image is-16by9">
-                            <img src="https://s1.cs.money/NTSuERw_icon.png" alt="Image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-left">
-                                <figure class="image is-48x48">
-                                    <img :src="card.avatar" alt="Image">
-                                </figure>
-                            </div>
-                            <div class="media-content">
-                                <p class="title is-4 no-padding"></p>
-                                <p>
-                                    <span class="title is-6">
-                                </p>
-                                <p class="subtitle is-6"></p>
-                            </div>
+                    <a href="/product/{{ $skins[$i]->name }}">
+                        <div class="card-image">
+                            <figure class="image is-1by1">
+                                <img src="{{ $skins[$i]->link }}" alt="Image">
+                            </figure>
                         </div>
-                        <div class="content">
-                            <div class="background-icon"><span class="icon-twitter"></span></div>
+                        <div class="card-link">
+                            <p class="container">{{ $skins[$i]->name }}</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             @endfor

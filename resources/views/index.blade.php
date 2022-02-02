@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ url('assets/css/product.css') }}" />
     <link rel="stylesheet" href="{{ url('assets/css/account.css') }}" />
     <link rel="stylesheet" href="{{ url('assets/css/contact.css') }}" />
-
+    <link rel="stylesheet" href="{{ url('assets/css/skins.css') }}" />
 
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
 </head>

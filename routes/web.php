@@ -48,13 +48,33 @@ $router->get('/login', function() {
     ]);
 });
 
+class Skin
+{
+    public $name;
+    public $link;
+}
+
 $router->get('/skins', function() {
     $isAuth = false;
+
+    $skin1 = new Skin();
+    $skin2 = new Skin();
+    $skin3 = new Skin();
+
+    $skin1->name = "eksere";
+    $skin2->name = "ruspa";
+    $skin3->name = "dioh";
+    $skin1->link = "yoooh";
+    $skin2->link = "sheeesh";
+    $skin3->link = "gesuh";
+
+    $skins = array($skin1, $skin2, $skin3);
 
     return view("index", [
         "title" => "Skins",
         "subview" => "skins",
         "isAuthenticated" => $isAuth,
+        "skins" => $skins
     ]);
 });
 
