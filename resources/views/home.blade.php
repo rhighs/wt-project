@@ -1,4 +1,5 @@
-<!--<iframe src="https://3d.cs.money/item/Yx6j1lz" width="700px" height="400px" webkitallowfullscreen allow='camera; gyroscope; accelerometer; magnetometer; fullscreen;' ></iframe> -->
+<script type="text/javascript" src="{{ url('assets/js/home/substring.js') }}"></script>
+
 <section class="hero is-medium is-info">
     <div class="hero-body">
         <div class="container is-centered">
@@ -24,7 +25,7 @@
                     <div class="media">
                         <div class="media-content">
                             <p class="title is-4">
-                        {{ $skins[$i]["name"] }}
+                        {{ $skins[$i]["name"]; }}
                             </p>
                         </div>
                     </div>
