@@ -28,7 +28,9 @@
         <div class="content has-text-centered">
             <div class="columns">
                 <div class="column">
-                    First column
+                    <strong>Payment</strong>
+                    <br>
+                    <br> Paypal
                 </div>
                 <div class="column">
                     <p>
@@ -36,7 +38,9 @@
                     </p>
                 </div>
                 <div class="column">
-                    Third column
+                    <strong>Help</strong>
+                    <br>
+                    <br><a href="/contact">Contact</a>
                 </div>
             </div>
         </div>
