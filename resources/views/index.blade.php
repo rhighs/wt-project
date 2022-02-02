@@ -35,6 +35,8 @@
                 <div class="column">
                     <p>
                         <strong>SkumontiSkins</strong>
+                        <br>
+                        <br><img id="logo" src="{{ url('assets/img/logo.png') }}">
                     </p>
                 </div>
                 <div class="column">

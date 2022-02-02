@@ -12,8 +12,7 @@
 						<div id="map"></div>
 
 						<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKiJI2hPrm3xzrL7sZHyt_38-CzSjwoGU&callback=initMap" async>
-						</script>
+						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKiJI2hPrm3xzrL7sZHyt_38-CzSjwoGU&callback=initMap" async></script>
 				</div>
 				<div class="column is-one-third has-text-left">
 					<div class="field">
