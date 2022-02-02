@@ -1,4 +1,4 @@
-<section class="hero is-primary is-fullheight">
+<section class="hero is-medium">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered">
@@ -25,11 +25,11 @@
             <div class="field">
               <label for="" class="checkbox">
                 <input type="checkbox">
-               Remember me
+                Ricordati di me
               </label>
             </div>
             <div class="field">
-              <button class="button is-success">
+              <button class="button is-info">
                 Login
               </button>
             </div>

@@ -13,15 +13,7 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    $isAuth = true;
-
-    return view("index", [
-        "title" => "index",
-        "subview" => "home",
-        "isAuthenticated" => $isAuth
-    ]);
-});
+$router->get("/", "HomeController@index");
 
 $router->get('/product/{pId}', function() {
     $isAuth = true;
@@ -48,11 +40,23 @@ $router->get('/login', function() {
     ]);
 });
 
+<<<<<<< HEAD
 class Skin
 {
     public $name;
     public $link;
 }
+=======
+$router->get('/signup', function() {
+    $isAuth = false;
+
+    return view("index", [
+        "title" => "Sign Up",
+        "subview" => "signup",
+        "isAuthenticated" => $isAuth,
+    ]);
+});
+>>>>>>> d799a4a (Added more db stuff...)
 
 $router->get('/skins', function() {
     $isAuth = false;

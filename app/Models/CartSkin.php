@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Skin extends Model
+class CartSkin extends Model
 {
-    protected $table = "skin";
+    protected $table = "cartskin";
 }
