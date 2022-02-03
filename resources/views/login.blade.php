@@ -6,16 +6,18 @@
                     <div class="box p-5">
                         <label class="is-block mb-4">
                             <span class="is-block mb-2">Indirizzo email</span>
-                            <input required type="email" class="input" />
+                            <input required id="login-email" type="email" class="input" />
                         </label>
 
                         <label class="is-block mb-4">
                             <span class="is-block mb-2">Password</span>
-                            <input name="password" type="password" class="input" minlength="6" required />
+                            <input id="login-password" name="password" type="password" class="input" minlength="6" required />
                         </label>
+                        
+                        <p id="login-error"></p>
 
                         <div class="mb-4">
-                            <button type="submit" class="button is-fullwidth is-info px-4">Login</button>
+                            <button id="login-button" type="submit" class="button is-fullwidth is-info px-4">Login</button>
                         </div>
                     </div>
                 </div>
@@ -23,3 +25,4 @@
         </div>
     </div>
 </section>
+<script type="text/javascript" src="{{ url('assets/js/login/login.js') }}"></script>
