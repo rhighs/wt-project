@@ -6,25 +6,26 @@
                     <div class="box p-5">
                         <label class="is-block mb-4">
                             <span class="is-block mb-2">Nome</span>
-                            <input required type="text" class="input"/>
+                            <input id="signup-name" required type="text" class="input"/>
                             <span class="is-block mb-2">Cognome</span>
-                            <input required type="text" class="input"/>
+                            <input id="signup-surname" required type="text" class="input"/>
                             <span class="is-block mb-2">Indirizzo email</span>
-                            <input required type="email" class="input" placeholder="pinco.pallo@pallino.com" />
+                            <input id="signup-email" required type="email" class="input" placeholder="pinco.pallo@pallino.com" />
                         </label>
 
                         <label class="is-block mb-4">
                             <span class="is-block mb-2">Password</span>
-                            <input name="password" type="password" class="input" minlength="6" required />
+                            <input id="signup-password" name="password" type="password" class="input" minlength="6" required />
                             <span class="is-block mb-2">Conferma Password</span>
-                            <input name="password-confirm" type="password" class="input" minlength="6" required />
+                            <input id="signup-password-confirm" name="password-confirm" type="password" class="input" minlength="6" required />
+                            <p id="signup-error"></p>
                         </label>
 
                         <div class="mb-4">
                         </div>
 
                         <div class="mb-4">
-                            <button type="submit" class="button is-fullwidth is-info px-4">Sign Up</button>
+                            <button id="signup-button" type="submit" class="button is-fullwidth is-info px-4">Sign Up</button>
                         </div>
                     </div>
                 </div>
@@ -32,3 +33,5 @@
         </div>
     </div>
 </section>
+
+<script src="{{ url('assets/js/signup/signup.js')}}" type="text/javascript"></script>
