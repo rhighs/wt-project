@@ -1,16 +1,3 @@
-const displayErrors = (errorList) => {
-    let errorString = "";
-
-    for (let error of errorList) {
-        errorString += "- " + error + ".<br>";
-    }
-
-    document.getElementById("signup-error").innerHTML = errorString;
-    setTimeout(() => {
-        document.getElementById("signup-error").innerHTML = "";
-    }, 4000 * errorList.length);
-}
-
 const signUp = () => {
     let name = document.getElementById("signup-name").value;
     let surname = document.getElementById("signup-surname").value;
@@ -37,6 +24,9 @@ const signUp = () => {
         nullValueLabels.push("Conferma Password");
     }
 
+    if (!validateEmail(email)) {
+        errors.push('email non valida');
+    }
     if (password !== passwordConfirm) {
         errors.push("Le due password non corrispondono");
     }
@@ -46,7 +36,7 @@ const signUp = () => {
     }
 
     if (errors.length > 0) {
-        displayErrors(errors);
+        displayErrors(errors, 'signup-error');
         return;
     }
 

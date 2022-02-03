@@ -3,25 +3,6 @@ loginBtn.onclick = () => {
     login();
 }
 
-const validateEmail = (email) => {
-    return String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-}
-const displayErrors = (errorList) => {
-    let errorString = "";
-
-    for (let error of errorList) {
-        errorString += "- " + error + ".<br>";
-    }
-
-    document.getElementById("login-error").innerHTML = errorString;
-    setTimeout(() => {
-        document.getElementById("login-error").innerHTML = "";
-    }, 4000 * errorList.length);
-}
 const loginRequest = (email, password) => {
     fetch('/login', {
         method: 'POST',
@@ -34,12 +15,14 @@ const loginRequest = (email, password) => {
         })
     }).then( res => {
         if(res.status !== 200) {
+            document.getElementById("login-error").innerHTML = 'Credenziali errate.';
             setTimeout( () => {
-                document.getElementById("login-error").innerHTML = "Credenziali errate.";
+                document.getElementById("login-error").innerHTML = '';
             }, 3000);
         }
     });
 }
+
 const login = () => {
     let email = document.getElementById('login-email').value;
     let password = document.getElementById('login-password').value;
@@ -56,11 +39,11 @@ const login = () => {
         errors.push('email non valida');
     }
     if (voids.length > 0) {
-        errors.push('I campi ' + voids.join(', ') + ' sono obbligatori');
+        errors.push("I campi " + voids.join(', ') + " sono obbligatori");
     }
 
     if (errors.length > 0) {
-        displayErrors(errors);
+        displayErrors(errors, 'login-error');
         return;
     }
 
