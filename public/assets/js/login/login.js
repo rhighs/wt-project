@@ -1,4 +1,5 @@
 let loginBtn = document.getElementById('login-button');
+
 loginBtn.onclick = () => {
     login();
 }
@@ -13,13 +14,20 @@ const loginRequest = (email, password) => {
             email: email,
             password: password
         })
-    }).then( res => {
-        if(res.status !== 200) {
-            document.getElementById("login-error").innerHTML = 'Credenziali errate.';
-            setTimeout( () => {
-                document.getElementById("login-error").innerHTML = '';
+    }).then(async res => {
+        let jsonData = await res.json();
+
+        if(res.success === false) {
+            document.getElementById("login-error").innerHTML = res.error;
+            setTimeout(() => {
+                document.getElementById("login-error").innerHTML = "";
             }, 3000);
+            return;
         }
+
+        localStorage.setItem("token", jsonData.token);
+
+        window.location.href = "/account";
     });
 }
 

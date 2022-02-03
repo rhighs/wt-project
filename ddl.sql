@@ -54,9 +54,10 @@ CREATE TABLE Transaction
 CREATE TABLE Users
 (
   Id       BIGINT  NOT NULL,
-  Name     VARCHAR,
+  Nome     VARCHAR,
   Cognome  VARCHAR,
   Email    VARCHAR,
+  ApiToken VARCHAR,
   Password VARCHAR,
   PRIMARY KEY (Id)
 );

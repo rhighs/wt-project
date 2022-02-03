@@ -49,11 +49,11 @@ const signUp = () => {
             name: name,
             surname: surname,
             email: email,
-            password: password,
-            passwordConfirm: passwordConfirm
+            password: password
         })
     }).then(res => {
-        if (res.status !== 200) {
+        if (res.success === true) {
+            alert("gskianto");
             //document.getElementById("signup-error").innerHTML = "Errore durante la registrazione";
         }
     });

@@ -20,6 +20,10 @@ $router->get('/skin/{id}', function($id) use ($router) {
     return $controller->index($id);
 });
 
+$router->post('/login', "UserController@login");
+
+$router->post('/signup', "UserController@signup");
+
 $router->get('/signup', "SignUpController@index");
 
 $router->get('/login', function() {
