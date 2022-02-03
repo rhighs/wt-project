@@ -10,13 +10,37 @@
     border-style: groove;
     border-width: 7px;
     border-color:honeydew;
+    height: 90%;
 }
 
+#account-button-search-container
+{
+    text-align: right;
+}
+.column.is-9
+{
+    flex: none;
+    width: 100%;
+}
+#account-button
+{
+    background-color: #00917c;
+    color: white;
+    border-color: transparent;
+}
 .account-credentials
 {
     padding-left: 2%;
 }
+#account-global-container
+{
+    height: 80%;
+}
 
+#account-table
+{
+    width: 100%;
+}
 .account-transactions
 {
     width:100%;
