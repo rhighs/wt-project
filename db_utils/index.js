@@ -39,15 +39,15 @@ const fetchSkins = async (maxItems) => {
 
 // Populate the skins table
 (async () => {
-    await fetchSkins(500).then(items => {
-        const client = new Client({
-            user: process.env.DB_USERNAME,
-            host: process.env.DB_HOST,
-            database: process.env.DB_DATABASE,
-            password: process.env.DB_PASSWORD,
-            port: process.env.DB_PORT,
-        });
+    const client = new Client({
+        user: process.env.DB_USERNAME,
+        host: process.env.DB_HOST,
+        database: process.env.DB_DATABASE,
+        password: process.env.DB_PASSWORD,
+        port: process.env.DB_PORT,
+    });
 
+    await fetchSkins(500).then(items => {
         client.connect();
 
         const queryString = `INSERT INTO skin(id, name, imagelink, link3d, price, rarity) values ($1, $2, $3, $4, $5, $6)`;
@@ -59,7 +59,7 @@ const fetchSkins = async (maxItems) => {
                     console.log(err);
                 }
             }));
-
-        client.end();
     });
+
+    client.end();
 })();
