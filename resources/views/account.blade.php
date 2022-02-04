@@ -5,7 +5,7 @@
                 <div class="hero-body">
                     <div class="container">
                         <h1 class="title">
-                            Hello, {{ $item["name"] }}.
+                            Hello, <!-- Nome qui -->.
                         </h1>
                         <h2 class="subtitle">
                             I hope you are having a great day!
@@ -17,13 +17,13 @@
                 <div class="tile is-ancestor has-text-centered">
                     <div class="tile is-parent">
                         <article class="tile is-child box">
-                            <p class="title">{{ $item["surname"] }}</p>
+                            <p class="title"><!-- Cognome qui --></p>
                             <p class="subtitle">surname</p>
                         </article>
                     </div>
                     <div class="tile is-parent">
                         <article class="tile is-child box">
-                            <p class="title">{{ $item["email"] }}</p>
+                            <p class="title"><!-- Email qui --></p>
                             <p class="subtitle">Email</p>
                         </article>
                     </div>
