@@ -18,8 +18,35 @@ class UserController extends BaseController
         $this->maxIDValue = 9999999999999999;
     }
 
-    public function login(Request $request)
-    {
+    public static function test(Request $request) {
+        $token = $request->header("token");
+
+        if (!$token) {
+            return [
+                "success" => false
+            ];
+        }
+
+        $user = Users::where("apitoken", "=", $token);
+
+        return [
+            "success" => true,
+            "userdata" => [
+                "email" => $user["email"],
+                "name" => $user["nome"],
+                "surname" => $user["cognome"]
+            ]
+        ];
+    }
+
+    public function account() {
+        return view("index", [
+            "title" => "account",
+            "subview" => "account"
+        ]);
+    }
+
+    public function login(Request $request) {
         if ($request->has("email") && $request->has("password")) {
             $user = Users::where("email", "=", $request->input("email"))
                 ->where("password", "=", sha1($this->salt . $request->input("password")))
@@ -48,8 +75,7 @@ class UserController extends BaseController
         }
     }
 
-    public function signup(Request $request)
-    {
+    public function signup(Request $request) {
         $jsonData = $request->json()->all();
         $isValidRequest = $this->validate($request, [
             "name" => "required",
@@ -85,5 +111,3 @@ class UserController extends BaseController
         }
     }
 }
-
-

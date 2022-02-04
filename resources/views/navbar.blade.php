@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        @if ($isAuthenticated === true)
+        <!--
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-        @else
+
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
@@ -67,6 +67,6 @@
                     </div>
                 </div>
             </div>
-        @endif
+        -->
     </div>
 </nav>

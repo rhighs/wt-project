@@ -15,18 +15,14 @@
 
 $router->get("/", "HomeController@index");
 
-$router->get('/skin/{id}', function($id) use ($router) {
-    $controller = $router->app->make('App\Http\Controllers\SkinController');
+$router->get("/skin/{id}", function($id) use ($router) {
+    $controller = $router->app->make("App\Http\Controllers\SkinController");
     return $controller->index($id);
 });
 
-$router->post('/login', "UserController@login");
+$router->get("/signup", "SignUpController@index");
 
-$router->post('/signup', "UserController@signup");
-
-$router->get('/signup', "SignUpController@index");
-
-$router->get('/login', function() {
+$router->get("/login", function() {
     $isAuth = false;
 
     return view("index", [
@@ -42,25 +38,11 @@ class Skin
     public $link;
 }
 
-$router->get('/skins', "SkinsController@index");
+$router->get("/skins", "SkinsController@index");
 
-$router->get('/account', function() {
-    $isAuth = true;
-    $item = [
-        "name" => "SkuGas",
-        "surname" => "Ricci",
-        "email" => "skugod@gskianto.com"
-    ];
+$router->get("/account", "UserController@account");
 
-    return view("index", [
-        "title" => "account",
-        "subview" => "account",
-        "isAuthenticated" => $isAuth,
-        "item" => $item
-    ]);
-});
-
-$router->get('/contact', function() {
+$router->get("/contact", function() {
     $isAuth = true;
 
     return view("index", [
@@ -68,4 +50,10 @@ $router->get('/contact', function() {
         "subview" => "contact",
         "isAuthenticated" => $isAuth,
     ]);
+});
+
+$router->group(["prefix" => "api"], function () use ($router) {
+    $router->post("/testAuth", "UserController@test");
+    $router->post("/login", "UserController@login");
+    $router->post("/signup", "UserController@signup");
 });

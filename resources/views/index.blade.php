@@ -17,14 +17,16 @@
     <link rel="stylesheet" href="{{ url('assets/css/login.css') }}" />
 
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+
+    <script src="{{ url('assets/js/auth/auth.js') }}" type="text/javascript"></script>
 </head>
 
 <body>
     <!-- nav -->
-    @include('navbar', array('isAuthenticated' => $isAuthenticated))
+    @include('navbar')
 
     <!-- body -->
-    @include($subview, array('isAuthenticated' => $isAuthenticated))
+    @include($subview)
 
     <!-- footer -->
     <footer class="footer">
