@@ -17,17 +17,16 @@ const loginRequest = (email, password) => {
     }).then(async res => {
         let jsonData = await res.json();
 
-        if(res.success === false) {
-            document.getElementById("login-error").innerHTML = res.error;
+        if(jsonData.success === false) {
+            document.getElementById("login-error").innerHTML = jsonData.error;
             setTimeout(() => {
                 document.getElementById("login-error").innerHTML = "";
             }, 3000);
-            return;
+        } else {
+            localStorage.setItem("token", jsonData.token);
+            window.location.href = "/account";
         }
 
-        localStorage.setItem("token", jsonData.token);
-
-        window.location.href = "/account";
     });
 }
 
