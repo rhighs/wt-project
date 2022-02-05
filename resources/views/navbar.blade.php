@@ -68,5 +68,12 @@
                 </div>
             </div>
         -->
+        <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="navbar-item" href="/cart/">
+                        <img src="{{ url('assets/img/shopping-cart.jpg') }}" width="1" height="1">
+                    </a>
+                </div>
+            </div>
     </div>
 </nav>

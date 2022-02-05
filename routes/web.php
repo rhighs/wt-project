@@ -42,6 +42,16 @@ $router->get("/skins", "SkinsController@index");
 
 $router->get("/account", "UserController@account");
 
+$router->get("/cart", function() {
+    $isAuth = true;
+
+    return view("index", [
+        "title" => "cart",
+        "subview" => "cart",
+        "isAuthenticated" => $isAuth,
+    ]);
+});
+
 $router->get("/contact", function() {
     $isAuth = true;
 
