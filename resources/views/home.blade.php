@@ -12,29 +12,4 @@
         </div>
     </div>
 </section>
-<div class="box">
-    <div class="columns">
-        @for ($i = 0; $i < sizeof($skins); $i++) <div class="column">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image is-1by1">
-                        <img src="{{ $skins[$i]["imagelink"] }}" alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-content">
-                            <p class="title is-4">
-                        {{ $skins[$i]["name"]; }}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="content">
-                    </div>
-                </div>
-            </div>
-    </div>
-    @endfor
-</div>
-</div>
+    @include("slider")
