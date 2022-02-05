@@ -8,7 +8,10 @@ const testAuth = async (token) => {
     }
 
     return await fetch("/api/testAuth", {
-        method: "POST"
+        method: "POST",
+        headers: {
+            "token": token
+        }
     }).then(async res => {
         if (res.status === 200) {
             let jsonData = await res.json();
@@ -20,4 +23,8 @@ const testAuth = async (token) => {
 
         return undefined;
     });
+}
+
+const logout = () => {
+    localStorage.removeItem("token");
 }

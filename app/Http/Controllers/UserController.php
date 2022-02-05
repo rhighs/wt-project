@@ -27,7 +27,8 @@ class UserController extends BaseController
             ];
         }
 
-        $user = Users::where("apitoken", "=", $token);
+        $user = Users::where("apitoken", "=", $token)
+            ->first();
 
         return [
             "success" => true,
