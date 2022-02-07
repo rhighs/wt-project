@@ -1,8 +1,7 @@
-<link rel="stylesheet" href="{{ url('assets/css/navbar.css') }}" />
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
-            <img src="{{ url('assets/img/logo.png') }}">
+            <img src="{{ url('assets/img/logo.png') }}" alt="logo image">
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
