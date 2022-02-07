@@ -1,6 +1,6 @@
 <div class="box" style="background-image: url({{ url('assets/img/background.jpg') }});">
     <script type="text/javascript" src="{{ url('assets/js/product/tabs.js') }}"></script>
-    
+
     <section class="section product">
         <article class="product-article">
             <div class="columns">
@@ -24,7 +24,10 @@
                         <div class="content">
                             <h1 class="title">{{ $item["name"] }}</h1>
                             <h2 class="subtitle">{{ $item["price"] }}€</h2>
-                            <button class="button is-info is-large">Add to cart</button>
+                            <?php 
+                                $id = $item["id"]; 
+                            ?>
+                            <button class="button is-info is-large" onclick="add('<?php echo $id; ?>');">Add to cart</button>
                         </div>
                     </div>
                 </div>

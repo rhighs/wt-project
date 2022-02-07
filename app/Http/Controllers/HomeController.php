@@ -9,7 +9,7 @@ class HomeController extends BaseController
 {
     public function index() {
         $isAuth = true;
-        $nItems = 3;
+        $nItems = 9;
         $skins = Skin::all();
         $indexes = [];
 

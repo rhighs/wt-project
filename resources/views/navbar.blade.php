@@ -41,21 +41,20 @@
             </div>
         </div>
 
-        <!--
-            <div class="navbar-end">
+            <div class="navbar-end" id="authorized-buttons">
                 <div class="navbar-item">
                     <div class="buttons">
                         <a class="button is-info" href="/account/">
                             <strong>Account</strong>
                         </a>
-                        <a class="button is-light">
+                        <a id="logout-button" class="button is-light">
                             Log out
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="navbar-end">
+            <div class="navbar-end" id="unauthorized-buttons">
                 <div class="navbar-item">
                     <div class="buttons">
                         <a class="button is-info" href="/signup">
@@ -67,7 +66,6 @@
                     </div>
                 </div>
             </div>
-        -->
         <div class="navbar-end">
                 <div class="navbar-item">
                     <a class="navbar-item" href="/cart/">
@@ -75,5 +73,8 @@
                     </a>
                 </div>
             </div>
+
     </div>
 </nav>
+
+<script src="{{ url('assets/js/navbar/navbar.js') }}" type="text/javascript"></script>

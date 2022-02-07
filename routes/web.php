@@ -66,4 +66,5 @@ $router->group(["prefix" => "api"], function () use ($router) {
     $router->post("/testAuth", "UserController@test");
     $router->post("/login", "UserController@login");
     $router->post("/signup", "UserController@signup");
+    $router->post("/skin", "SkinController@addCart");
 });
