@@ -96,6 +96,7 @@ class UserController extends BaseController
             $user["apitoken"] = Str::random($this->tokenLength);
 
             if ($user->save()) {
+                createCart($user["id"]);
                 return [
                     "success" => true
                 ];
@@ -111,5 +112,14 @@ class UserController extends BaseController
                 "error" => "La richiesta non è valida"
             ];
         }
+
+
+    }
+
+    private function createCart(int $idUser){
+        $cart = new Cart;
+        $cart["id"] = 1;
+        $cart["iduser"] = $idUser;
+        $cart->save();
     }
 }

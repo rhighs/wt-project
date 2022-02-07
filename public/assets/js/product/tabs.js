@@ -17,15 +17,15 @@ function openTab(evt, tabName) {
 
 function add(idSkin) {
 
-    let result = testAuth();
+    //let result = testAuth();
     fetch('/api/skin', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            skinId : idSkin,
-            //userId : "1"//result["id"]
+            skinId : "www"
+            //userId : result["id"]
         })
     }).then(async res => {
         let jsonData = await res.json();

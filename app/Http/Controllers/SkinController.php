@@ -21,8 +21,8 @@ class SkinController extends BaseController
         ]);
     }
 
-    public function addCart($request){
-        if ($request->has("skinId") && $request->has("userId")) {
+    public function addCart(Request $request){
+        /*if ($request->has("skinId") && $request->has("userId")) {
             $cart = Cart::where("iduser", "=", $request->input("userId"))
                 ->first();
 
@@ -31,6 +31,13 @@ class SkinController extends BaseController
                     "success" => true
                 ];
             }
-        }
+        }*/
+        $cart = new Cart;
+        $cart["id"] = 1;
+        $cart["iduser"] = 1;
+        $cart->save();
+        return [
+            "success" => true
+        ];
     }
 }
