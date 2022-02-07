@@ -15,7 +15,7 @@ class UserController extends BaseController
     {
         $this->salt = "skugasriccigksianto";
         $this->tokenLength = 60;
-        $this->maxIDValue = 9999999999999999;
+        $this->maxIdValue = 9999999999999999;
     }
 
     public static function test(Request $request) {
@@ -33,6 +33,7 @@ class UserController extends BaseController
         return [
             "success" => true,
             "userdata" => [
+                "id" => $user["id"],
                 "email" => $user["email"],
                 "name" => $user["nome"],
                 "surname" => $user["cognome"]

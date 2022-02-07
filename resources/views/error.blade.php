@@ -1,4 +1,10 @@
-<section class="hero is-medium is-info">
+<link rel="stylesheet" href="{{ url('assets/css/root.css') }}"/>
+<link rel="stylesheet" href="{{ url('assets/css/error.css') }}"/>
+<script src="{{ url('assets/js/auth/auth.js') }}" type="text/javascript"></script>
+
+@include("navbar")
+
+<section class="hero is-info is-fullheight">
     <div class="hero-body">
         <div class="container is-centered">
             <p class="title">
