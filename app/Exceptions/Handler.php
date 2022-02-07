@@ -2,11 +2,14 @@
 
 namespace App\Exceptions;
 
+use Dotenv\Loader\Resolver;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -21,6 +24,7 @@ class Handler extends ExceptionHandler
         HttpException::class,
         ModelNotFoundException::class,
         ValidationException::class,
+        NotFoundHttpException::class
     ];
 
     /**
@@ -47,8 +51,30 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    public function render($request, Throwable $exception)
+    public function render($request, Throwable $e)
     {
-        return parent::render($request, $exception);
+        if ($e instanceof HttpException) {
+            $data = [
+                "subview" => "error",
+                "errorTitle" => "ERROR 404: NOT FOUND",
+                "errorMessage" => "Non siamo riusciti a trovare il contenuto :("
+            ];
+            $status = $e->getStatusCode();
+    
+            if (view()->exists("index")) {
+                return response(view("error", $data), $status);
+            }
+        }
+    
+        if (env('APP_DEBUG')) {
+            return parent::render($request, $e);
+        } else {
+            $data = [
+                "subview" => "error",
+                "errorTitle" => "ERROR 500: SOMETHING BROKE",
+                "errorMessage" => "Abbiamo avuto qualche problema, riprova più tardi"
+            ];
+            return response(view("index", $data), 500);
+        }
     }
 }

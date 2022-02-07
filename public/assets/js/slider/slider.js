@@ -2,6 +2,7 @@ let btnLeft = document.getElementById('btn-left');
 let btnRight = document.getElementById('btn-right');
 let slideNumber = 0;
 let cardInSlide = 2;
+let waitTime = 5000; // milliseconds
 
 const updateSlide = () => {
 	console.log(slideNumber);
@@ -19,20 +20,31 @@ const updateSlide = () => {
 	}
 }
 
+const resetSlideTimer = () => {
+	setTimeout( () => {
+		btnRight.click();
+		resetSlideTimer();
+	}, waitTime);
+}
+
+resetSlideTimer();
+
 btnLeft.addEventListener('click', () => {
 	if (slideNumber == 0) {
-		return;
+		slideNumber = cardInSlide;
+	} else {
+		slideNumber--;
 	}
 
-	slideNumber--;
 	updateSlide();
 });
 
 btnRight.addEventListener('click', () => {
 	if (slideNumber == cardInSlide) {
-		return;
+		slideNumber = 0;
+	} else {
+		slideNumber++;
 	}
 
-	slideNumber++;
 	updateSlide();
 });

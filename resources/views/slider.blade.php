@@ -1,29 +1,32 @@
 <link rel="stylesheet" href="{{ url('assets/css/slider.css') }}" />
 
-<div class="container">
-    <div class="row">
-        <h3 class="is-pulled-left">Le skin più comprate dagli utenti</h3>
+<br>
+<div class="slider">
+    <div class="row slider-info">
+        <h2 class="is-pulled-left">Le skin più comprate dagli utenti</h2>
         <div class="buttons is-pulled-right">
             <a id="btn-left" class="button" role="button" data-slide="prev">
-                <i class="fa fa-arrow-left"></i>
+                &#8592;
             </a>
             <a id="btn-right" class="button" role="button" data-slide="next">
-                <i class="fa fa-arrow-right"></i>
+                &#8594;
             </a>
         </div>
     </div>
 
-    <div class="columns">
-        @for ($i = 0; $i < sizeof($skins) - 6; $i++) 
-            <div id="card-{{ $i }}" class="card">
-                <img class="img-fluid" alt="100%x280" src="{{ $skins[$i]['imagelink'] }}">
-                <div class="card-body">
-                    <h4 class="card-title">
-                        {{ $skins[$i]["name"] }}
-                    </h4>
+    <div class="container slider-images">
+        <div class="columns">
+            @for ($i = 0; $i < sizeof($skins) - 6; $i++) 
+                <div id="card-{{ $i }}" class="card">
+                    <img class="img-fluid" alt="100%x280" src="{{ $skins[$i]['imagelink'] }}">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            {{ $skins[$i]["name"] }}
+                        </h4>
+                    </div>
                 </div>
-            </div>
-        @endfor
+            @endfor
+        </div>
     </div>
 </div>
 
