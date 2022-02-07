@@ -8,12 +8,7 @@
     </div>
 </section>
 <div class="container">
-        <div class="columns">
-            <div class="column has-text-centered">
-                <h1 class="title" style="color: ghostwhite;"></h1><br>
-            </div>
-        </div>
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    <nav class="pagination is-centered" aria-label="pagination">
         @if ($currentPage > 1)
             <a class="pagination-previous" href="/skins?page={{ $currentPage - 1 }}">Previous</a>
         @endif

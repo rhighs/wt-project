@@ -42,7 +42,7 @@
                     <p>
                         <strong>SkumontiSkins</strong>
                         <br>
-                        <br><img id="logo" src="{{ url('assets/img/logo.png') }}">
+                        <br><img id="logo" src="{{ url('assets/img/logo.png') }}" alt="logo image">
                     </p>
                 </div>
                 <div class="column">
