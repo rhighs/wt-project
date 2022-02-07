@@ -1,0 +1,14 @@
+.slider-info {
+    margin-left: 2%;
+    margin-right: 2%;
+    color: white;
+}
+
+.card-title {
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+.columns > * {
+    margin: 2%;
+}
