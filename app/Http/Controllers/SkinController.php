@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
 use App\Models\CartSkin;
+use App\Models\Cart;
 use App\Models\Skin;
 
 class SkinController extends BaseController
