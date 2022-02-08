@@ -5,7 +5,6 @@ let cardInSlide = 2;
 let waitTime = 5000; // milliseconds
 
 const updateSlide = () => {
-	console.log(slideNumber);
 
 	let start = cardInSlide * slideNumber;
 	for (let i = 0; i <= cardInSlide; i++) {

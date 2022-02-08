@@ -1,0 +1,11 @@
+.navbar-burger {
+    justify-content: center;
+}
+
+.navbar-start {
+    justify-content: center;
+}
+
+#authorized-buttons, #unauthorized-buttons {
+    margin: 0 auto;
+}
