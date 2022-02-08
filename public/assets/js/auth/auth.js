@@ -25,6 +25,15 @@ const testAuth = async (token) => {
     });
 }
 
+const redirectIfNotAuthenticated = () => {
+    testAuth()
+        .then(result => {
+            if (result === undefined) {
+                window.location.href = "/";
+            }
+        })
+}
+
 const logout = () => {
     localStorage.removeItem("token");
 }

@@ -1,104 +1,46 @@
 <div class="container">
     <div class="columns">
         <div class="column is-9">
-            <section class="hero is-info welcome is-small">
+            <section class="hero is-info welcome is-medium">
                 <div class="hero-body">
                     <div class="container">
                         <h1 class="title">
-                            Hello, <!-- Nome qui -->.
+                            Benvenuto,
+                            <span id="name">
+                                <!-- Nome qui -->
+                            </span>
+                            <span id="surname">
+                                <!-- Cognome qui -->
+                            </span>.
                         </h1>
-                        <h2 class="subtitle">
-                            I hope you are having a great day!
-                        </h2>
                     </div>
                 </div>
             </section>
-            <section class="info-tiles">
-                <div class="tile is-ancestor has-text-centered">
-                    <div class="tile is-parent">
-                        <article class="tile is-child box">
-                            <p class="title"><!-- Cognome qui --></p>
-                            <p class="subtitle">surname</p>
-                        </article>
-                    </div>
-                    <div class="tile is-parent">
-                        <article class="tile is-child box">
-                            <p class="title"><!-- Email qui --></p>
-                            <p class="subtitle">Email</p>
-                        </article>
-                    </div>
-                </div>
-            </section>
+
             <div class="columns">
                 <div class="column is-6">
-                    <div class="card events-card">
-                        <header class="card-header">
-                            <p class="card-header-title">
-                                Events
-                            </p>
-                            <a href="#" class="card-header-icon" aria-label="more options">
-                                <span class="icon">
-                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </a>
-                        </header>
-                        <div class="card-table">
-                            <div class="content">
-                                <table class="table is-fullwidth is-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                            <td>Lorum ipsum dolem aire</td>
-                                            <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                            <td>Lorum ipsum dolem aire</td>
-                                            <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                            <td>Lorum ipsum dolem aire</td>
-                                            <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                            <td>Lorum ipsum dolem aire</td>
-                                            <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                            <td>Lorum ipsum dolem aire</td>
-                                            <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                            <td>Lorum ipsum dolem aire</td>
-                                            <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                            <td>Lorum ipsum dolem aire</td>
-                                            <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                            <td>Lorum ipsum dolem aire</td>
-                                            <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                            <td>Lorum ipsum dolem aire</td>
-                                            <td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <footer class="card-footer">
-                            <a href="#" class="card-footer-item">View All</a>
-                        </footer>
-                    </div>
+
+            <table class="table is-fullwidth">
+                <thead>
+                    <tr>
+                        <th><abbr title="Position">Id</abbr></th>
+                        <th><abbr title="Played">Id Transazione</abbr></th>
+                        <th><abbr title="Won">Prezzo</abbr></th>
+                        <th><abbr title="Drawn">Data</abbr></th>
+                        <th><abbr title="Lost">Numero carta</abbr></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Leicester City</a> <strong>(C)</strong>
+                        </td>
+                        <td>38</td>
+                        <td>23</td>
+                        <td>12</td>
+                    </tr>
+                </tbody>
+            </table>
                 </div>
                 <div class="column is-6">
                     <div class="card">
@@ -145,3 +87,5 @@
         </div>
     </div>
 </div>
+
+<script src="{{ url('assets/js/account/account.js') }}"></script>

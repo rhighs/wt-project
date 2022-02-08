@@ -5,6 +5,14 @@ const signUp = () => {
     let password = document.getElementById("signup-password").value;
     let passwordConfirm = document.getElementById("signup-password-confirm").value;
 
+    const resetFields = () => {
+        document.getElementById("signup-name").value = "";
+        document.getElementById("signup-surname").value = "";
+        document.getElementById("signup-email").value = "";
+        document.getElementById("signup-password").value = "";
+        document.getElementById("signup-password-confirm").value = "";
+    }
+
     let errors = [];
     let nullValueLabels = [];
 
@@ -53,8 +61,13 @@ const signUp = () => {
         })
     }).then(res => {
         if (res.success === true) {
-            alert("gskianto");
-            //document.getElementById("signup-error").innerHTML = "Errore durante la registrazione";
+            resetFields();
+            setTimeout(() => {
+                window.location.href = "/login";
+            }, 1000);
+        } else {
+            document.getElementById("signup-error").innerHTML = "Errore durante la registrazione";
+            resetFields();
         }
     });
 }

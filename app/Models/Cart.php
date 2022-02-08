@@ -10,5 +10,4 @@ class Cart extends Model
     protected $table = "cart";
     public $incrementing = true;
     public $timestamps = false;
-
 }
