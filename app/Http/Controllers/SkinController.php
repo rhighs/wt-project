@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
+use App\Models\CartSkin;
 use App\Models\Skin;
-use App\Models\Cart;
 
 class SkinController extends BaseController
 {
+    public function generateId() {
+        $maxIdValue = 9999999999999999;
+        $id = rand(0, $maxIdValue);
+
+        while (CartSkin::where("id", "=", $id)->first() != null) {
+            $id = rand(0, $maxIdValue);
+        }
+
+        return $id;
+    }
+
     public function index($id) {
         $isAuth = true;
 

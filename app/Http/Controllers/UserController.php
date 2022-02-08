@@ -6,6 +6,7 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Users;
+use App\Models\Cart;
 
 class UserController extends BaseController
 {
@@ -15,7 +16,17 @@ class UserController extends BaseController
     {
         $this->salt = "skugasriccigksianto";
         $this->tokenLength = 60;
-        $this->maxIdValue = 9999999999999999;
+    }
+
+    public function generateId() {
+        $maxIdValue = 9999999999999999;
+        $id = rand(0, $maxIdValue);
+
+        while (Users::where("id", "=", $id)->first() != null) {
+            $id = rand(0, $maxIdValue);
+        }
+
+        return $id;
     }
 
     public static function test(Request $request) {
@@ -86,9 +97,18 @@ class UserController extends BaseController
             "password" => "required"
         ]);
 
+        $user = Users::where("email", "=", $jsonData["email"])->first();
+
+        if ($user != null) {
+            return [
+                "success" => false,
+                "error" => "Esiste già un utente con questa email"
+            ];
+        }
+
         if ($isValidRequest) {
             $user = new Users;
-            $user["id"] = rand(0, $this->maxIdValue);
+            $user["id"] = $this->generateId();
             $user["nome"] = $jsonData["name"];
             $user["cognome"] = $jsonData["surname"];
             $user["email"] = $jsonData["email"];
@@ -96,7 +116,7 @@ class UserController extends BaseController
             $user["apitoken"] = Str::random($this->tokenLength);
 
             if ($user->save()) {
-                createCart($user["id"]);
+                $this->createCart($user["id"]);
                 return [
                     "success" => true
                 ];
@@ -112,8 +132,6 @@ class UserController extends BaseController
                 "error" => "La richiesta non è valida"
             ];
         }
-
-
     }
 
     private function createCart(int $idUser){
