@@ -45,6 +45,10 @@
         <div class="navbar-end" id="authorized-buttons">
             <div class="navbar-item">
                 <div class="buttons">
+                    <a class="button is-warning" href="/cart/">
+                        <strong>Carrello</strong>
+                        <img class="cart-logo" src="{{ url('assets/img/cart.png') }}" alt="logo image">
+                    </a>
                     <a class="button is-info" href="/account/">
                         <strong>Account</strong>
                     </a>
@@ -52,11 +56,7 @@
                         Log out
                     </a>
                 </div>
-                <a class="navbar-item" href="/cart/">
-                    <img src="{{ url('assets/img/shopping-cart.jpg') }}" width="1" height="1">
-                </a>
             </div>
-
         </div>
     </div>
 
