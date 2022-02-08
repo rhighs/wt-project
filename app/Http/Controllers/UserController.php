@@ -6,6 +6,8 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Users;
+use App\Models\Cart;
+
 
 class UserController extends BaseController
 {
@@ -77,6 +79,17 @@ class UserController extends BaseController
         }
     }
 
+    private function createCart(int $idUser){
+        $cart = new Cart;
+        $lastId = Cart::select("id")->orderBy('id', 'desc')->first();
+        if($lastId){
+            $id = $lastId["id"] + 1;
+            $cart["id"] = $id;
+            $cart["iduser"] = $idUser;
+            $cart->save();
+        }
+    }
+
     public function signup(Request $request) {
         $jsonData = $request->json()->all();
         $isValidRequest = $this->validate($request, [
@@ -96,7 +109,7 @@ class UserController extends BaseController
             $user["apitoken"] = Str::random($this->tokenLength);
 
             if ($user->save()) {
-                createCart($user["id"]);
+                $this->createCart($user["id"]);
                 return [
                     "success" => true
                 ];
@@ -116,10 +129,5 @@ class UserController extends BaseController
 
     }
 
-    private function createCart(int $idUser){
-        $cart = new Cart;
-        $cart["id"] = 1;
-        $cart["iduser"] = $idUser;
-        $cart->save();
-    }
+    
 }

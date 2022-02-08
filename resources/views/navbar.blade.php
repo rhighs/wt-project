@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{ url('assets/css/navbar.css') }}" />
 <nav class="navbar" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
@@ -44,7 +45,10 @@
             <div class="navbar-end" id="authorized-buttons">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-info" href="/account/">
+                    <a class="navbar-item" href="/cart/">
+                        <img src="{{ url('assets/img/shopping-cart.jpg') }}" width="1" height="1">
+                    </a>
+                    <a class="button is-info" href="/account/">
                             <strong>Account</strong>
                         </a>
                         <a id="logout-button" class="button is-light">
@@ -66,14 +70,6 @@
                     </div>
                 </div>
             </div>
-        <div class="navbar-end">
-                <div class="navbar-item">
-                    <a class="navbar-item" href="/cart/">
-                        <img src="{{ url('assets/img/shopping-cart.jpg') }}" width="1" height="1">
-                    </a>
-                </div>
-            </div>
-
     </div>
 </nav>
 

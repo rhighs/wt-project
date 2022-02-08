@@ -9,4 +9,6 @@ class Cart extends Model
     protected $primaryKey = "id";
     protected $table = "cart";
     public $incrementing = true;
+    public $timestamps = false;
+
 }

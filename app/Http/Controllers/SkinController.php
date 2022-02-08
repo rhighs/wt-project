@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
 use App\Models\Skin;
+use App\Models\CartSkin;
 use App\Models\Cart;
+
+use Illuminate\Http\Request;
+
 
 class SkinController extends BaseController
 {
@@ -22,22 +26,19 @@ class SkinController extends BaseController
     }
 
     public function addCart(Request $request){
-        /*if ($request->has("skinId") && $request->has("userId")) {
-            $cart = Cart::where("iduser", "=", $request->input("userId"))
-                ->first();
-
-            if ($cart) {
-                return [
-                    "success" => true
-                ];
-            }
-        }*/
-        $cart = new Cart;
-        $cart["id"] = 1;
-        $cart["iduser"] = 1;
-        $cart->save();
-        return [
-            "success" => true
-        ];
-    }
+        if ($request->has("skinId") && $request->has("userId")) {
+            $lastId = CartSkin::select("id")->orderBy('id', 'desc')->first();
+            $idcart = Cart::select("id")->where("iduser", "=", $request->input("userId"))->first();
+            $id = ($lastId) ? $lastId +1 : 1;
+            $cart = new CartSkin;
+            $jsonData = $request->json()->all();
+            $cart["id"] = $id;
+            $cart["idcart"] = $idcart["id"];
+            $cart["idskin"] = $jsonData["skinId"];
+            $cart->save();
+            return [
+                "success" => true
+            ];
+        }
+    }   
 }

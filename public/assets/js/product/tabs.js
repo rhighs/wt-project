@@ -14,25 +14,24 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " is-active";
 }
-
 function add(idSkin) {
-
-    //let result = testAuth();
-    fetch('/api/skin', {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            skinId : "www"
-            //userId : result["id"]
-        })
-    }).then(async res => {
-        let jsonData = await res.json();
-
-        if(jsonData.success) {
-            console.log("ok");
-            window.location.href = "/skins";
-        }
-    });
+    testAuth().then(result => {
+        fetch('/api/skin', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "skinId" : idSkin,
+                "userId" : result.id
+            })
+        }).then(async res => {
+            let jsonData = await res.json();
+    
+            if(jsonData.success) {
+                console.log("ok");
+                window.location.href = "/skins";
+            }
+        });
+    });    
 }
