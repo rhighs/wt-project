@@ -1,3 +1,10 @@
 #authorized-buttons, #unauthorized-buttons {
     visibility: hidden;
 }
+
+.cart-logo {
+    width: 24px !important;
+    height: 24px !important;
+    margin-left: 5px;
+    margin-right: -3px;
+}

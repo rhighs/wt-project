@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use App\Models\Users;
 use App\Models\Cart;
 
-
 class UserController extends BaseController
 {
     private $salt;
@@ -17,7 +16,17 @@ class UserController extends BaseController
     {
         $this->salt = "skugasriccigksianto";
         $this->tokenLength = 60;
-        $this->maxIdValue = 9999999999999999;
+    }
+
+    public function generateId() {
+        $maxIdValue = 9999999999999999;
+        $id = rand(0, $maxIdValue);
+
+        while (Users::where("id", "=", $id)->first() != null) {
+            $id = rand(0, $maxIdValue);
+        }
+
+        return $id;
     }
 
     public static function test(Request $request) {
@@ -99,9 +108,18 @@ class UserController extends BaseController
             "password" => "required"
         ]);
 
+        $user = Users::where("email", "=", $jsonData["email"])->first();
+
+        if ($user != null) {
+            return [
+                "success" => false,
+                "error" => "Esiste già un utente con questa email"
+            ];
+        }
+
         if ($isValidRequest) {
             $user = new Users;
-            $user["id"] = rand(0, $this->maxIdValue);
+            $user["id"] = $this->generateId();
             $user["nome"] = $jsonData["name"];
             $user["cognome"] = $jsonData["surname"];
             $user["email"] = $jsonData["email"];
@@ -125,8 +143,6 @@ class UserController extends BaseController
                 "error" => "La richiesta non è valida"
             ];
         }
-
-
     }
 
     

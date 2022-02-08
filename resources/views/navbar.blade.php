@@ -42,34 +42,36 @@
             </div>
         </div>
 
-            <div class="navbar-end" id="authorized-buttons">
-                <div class="navbar-item">
-                    <div class="buttons">
-                    <a class="navbar-item" href="/cart/">
-                        <img src="{{ url('assets/img/shopping-cart.jpg') }}" width="1" height="1">
+        <div class="navbar-end" id="authorized-buttons">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-warning" href="/cart/">
+                        <strong>Carrello</strong>
+                        <img class="cart-logo" src="{{ url('assets/img/cart.png') }}" alt="logo image">
                     </a>
                     <a class="button is-info" href="/account/">
-                            <strong>Account</strong>
-                        </a>
-                        <a id="logout-button" class="button is-light">
-                            Log out
-                        </a>
-                    </div>
+                        <strong>Account</strong>
+                    </a>
+                    <a id="logout-button" class="button is-light">
+                        Log out
+                    </a>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="navbar-end" id="unauthorized-buttons">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-info" href="/signup">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light" href="/login">
-                            Log in
-                        </a>
-                    </div>
-                </div>
+    <div class="navbar-end" id="unauthorized-buttons">
+        <div class="navbar-item">
+            <div class="buttons">
+                <a class="button is-info" href="/signup">
+                    <strong>Sign up</strong>
+                </a>
+                <a class="button is-light" href="/login">
+                    Log in
+                </a>
             </div>
+        </div>
+    </div>
     </div>
 </nav>
 
