@@ -19,11 +19,18 @@ const fetchSkins = async (maxItems) => {
 
     while (foundItems.length < maxItems) {
         let newItems = (await skins(i, step)).items;
+
         newItems = newItems.filter(newItem => 
             !foundItems.find(item => item.fullName === newItem.fullName)
             && !newItems.find(item => item.fullName === newItem.fullName && item.id !== newItem.id));
+
+        newItems = newItems.filter(async newItem => {
+            return await fetch(newItem.img)
+                .then(response => response.status === 200);
+        });
+
         foundItems = [...foundItems, ...newItems];
-        console.log(foundItems.length);
+        console.log("Items fetched: ", foundItems.length);
         i += step;
     }
 
