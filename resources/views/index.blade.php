@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{ url('assets/css/account.css') }}" />
     <link rel="stylesheet" href="{{ url('assets/css/contact.css') }}" />
     <link rel="stylesheet" href="{{ url('assets/css/skins.css') }}" />
-    <link rel="stylesheet" href="{{ url('assets/css/home.css') }}" />
     <link rel="stylesheet" href="{{ url('assets/css/signup.css') }}" />
     <link rel="stylesheet" href="{{ url('assets/css/login.css') }}" />
 
@@ -39,11 +38,11 @@
                 </div>
                 <div class="column">
                     <p>
-                        <strong>SkumontiSkins</strong>
+                        <strong>SKUSKINS</strong>
                         <br>
                         <br><img id="logo" src="{{ url('assets/img/logo.png') }}" alt="logo image">
                         <br>
-                        <br>©️2022 SkumontiSkins, All 
+                        <br>©️2022 SkuSkins, All 
                         <br>Rights Reserved.
                     </p>
                 </div>
