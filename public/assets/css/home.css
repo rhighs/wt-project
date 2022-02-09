@@ -1,3 +1,59 @@
 .container > p {
     text-align: center;
 }
+
+.offers, .faq {
+    margin-top: 7%;
+}
+
+#offers-title, #faq-title {
+    font-size: 250%;
+    color:  #c0c3e4;
+    text-align: center;
+}
+
+#offers-title b {
+    color:#9c2c2d;
+}
+
+.row-question {
+    margin-top: 55px;
+    text-align: right;
+}
+
+.row-question h3 b {
+    font-size: 30px;
+}
+
+.row-question p {
+    font-size: 20px;
+}
+
+.column-logo div {
+    -webkit-animation: action 1s infinite  alternate;
+    animation: action 1s infinite  alternate;
+}
+.card {
+    border-radius: 8px;
+}
+.row-card .card {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.row-card .card p {
+    text-align: center;
+}
+.subtitle {
+    margin-top: 5% !important;
+}
+
+@-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}

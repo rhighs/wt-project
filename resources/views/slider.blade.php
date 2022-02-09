@@ -13,7 +13,7 @@
             </a>
         </div>
     </div>
-
+    <br><br>
     <div class="container slider-images">
         <div class="columns is-multiline">
             @for ($i = 0; $i < sizeof($skins) - 6; $i++) 
