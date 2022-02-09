@@ -2,3 +2,9 @@
     text-align: center;
     padding-bottom: 3%;
 }
+
+.hero {
+    image-rendering: optimizeSpeed;
+    background-position: 50% 50%;
+    background-size:cover;
+}

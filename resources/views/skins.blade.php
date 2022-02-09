@@ -1,4 +1,4 @@
-<section class="hero is-medium is-info">
+<section style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url({{ url('assets/img/csgoskins.jpg') }})" class="hero is-medium is-info">
     <div class="hero-body">
         <div class="container is-centered">
             <p class="title">

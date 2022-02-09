@@ -33,9 +33,11 @@
     -webkit-animation: action 1s infinite  alternate;
     animation: action 1s infinite  alternate;
 }
+
 .card {
     border-radius: 8px;
 }
+
 .row-card .card {
     width: 100%;
     border-radius: 15px;
@@ -44,8 +46,29 @@
 .row-card .card p {
     text-align: center;
 }
+
+.main-title {
+    font-family: 'Bowlby One', cursive !important;
+    background: linear-gradient(#ff5a5a, #070707);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 5rem;
+    user-select: none;
+}
+
+.main-subtitle {
+    font-size: 1.5rem;
+    user-select: none;
+}
+
 .subtitle {
     margin-top: 5% !important;
+}
+
+.hero {
+    image-rendering: optimizeSpeed;
+    background-position: 50% 50%;
+    background-size:cover;
 }
 
 @-webkit-keyframes action {
@@ -56,4 +79,14 @@
 @keyframes action {
     0% { transform: translateY(0); }
     100% { transform: translateY(-10px); }
+}
+ 
+@media (max-width: 1200px) {
+    .main-title {
+        font-size: 3rem;
+    }
+
+    .main-subtitle {
+        font-size: 1rem;
+    }
 }

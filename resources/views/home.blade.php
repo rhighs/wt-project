@@ -1,13 +1,16 @@
 <script type="text/javascript" src="{{ url('assets/js/home/substring.js') }}"></script>
+<link rel="stylesheet" href="{{ url('assets/css/home.css') }}" />
 
-<section class="hero is-medium is-info">
+<section style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url({{ url('assets/img/de_nuke.jpg') }})" class="hero is-medium is-info">
     <div class="hero-body">
         <div class="container is-centered">
-            <p class="title">
-                SkumontiSkins
+            <p class="title main-title">
+                SKUSKINS
             </p>
-            <p class="subtitle">
-                Buy Cs:Go skins
+            <p class="subtitle main-subtitle">
+                <a href="/skins">
+                    Acquista skin esclusive per CS:GO
+                </a>
             </p>
         </div>
     </div>
@@ -18,7 +21,7 @@
         <div class="container">
             <div class="column">
                 <h2 id="offers-title">
-                    What 
+                    What
                     <b>SkumontiSKINS</b>
                     Offers
                 </h2>
@@ -35,8 +38,8 @@
             <div class="row row-question">
                 <h3><b>24/7 Support</b></h3>
                 <p>
-                    Still stuck after reading our in depth guides? Our support team is here to help! 
-                    <br>With members from around the globe, 
+                    Still stuck after reading our in depth guides? Our support team is here to help!
+                    <br>With members from around the globe,
                     <br>assistance is available 24 hours, 7 days per week!
                 </p>
             </div>
