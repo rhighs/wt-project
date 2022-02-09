@@ -1,5 +1,4 @@
 <div class="box" style="background-image: url({{ url('assets/img/background.jpg') }});">
-    <script type="text/javascript" src="{{ url('assets/js/product/tabs.js') }}"></script>
 
     <section class="section product">
         <article class="product-article">
@@ -27,7 +26,7 @@
                             <?php 
                                 $id = $item["id"]; 
                             ?>
-                            <button class="button is-info is-large" onclick="add('<?php echo $id; ?>');">Add to cart</button>
+                            <button id="cartButton" class="button is-info is-large" onclick="add('<?php echo $id; ?>');">Add to cart</button>
                         </div>
                     </div>
                 </div>
@@ -35,3 +34,6 @@
         </article>
     </section>
 </div>
+
+<script type="text/javascript" src="{{ url('assets/js/product/tabs.js') }}"></script>
+<script type="text/javascript" src="{{ url('assets/js/product/cartNotification.js') }}"></script>

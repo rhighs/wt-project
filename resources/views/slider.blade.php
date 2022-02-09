@@ -6,16 +6,6 @@
         <div class="container">
             <h2 id="slider-title">Le skin più comprate dagli utenti</h2>
             <br>
-            <div class="buttons container is-centered">
-                <div class="is-pulled-left">
-                    <a id="btn-left" class="button" role="button" data-slide="prev">
-                        &#8592;
-                    </a>
-                    <a id="btn-right" class="button" role="button" data-slide="next">
-                        &#8594;
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
     <br><br>
@@ -31,6 +21,16 @@
                     </div>
                 </div>
             @endfor
+        </div>
+        <div class="buttons container is-centered">
+            <div class="is-pulled-left">
+                <a id="btn-left" class="button" role="button" data-slide="prev">
+                    &#8592;
+                </a>
+                <a id="btn-right" class="button" role="button" data-slide="next">
+                    &#8594;
+                </a>
+            </div>
         </div>
     </div>
 </div>

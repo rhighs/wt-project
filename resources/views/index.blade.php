@@ -14,10 +14,12 @@
     <link rel="stylesheet" href="{{ url('assets/css/skins.css') }}" />
     <link rel="stylesheet" href="{{ url('assets/css/signup.css') }}" />
     <link rel="stylesheet" href="{{ url('assets/css/login.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/css/simpleNotifyStyle.css') }}" />
 
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
 
     <script src="{{ url('assets/js/auth/auth.js') }}" type="text/javascript"></script>
+    <script src="{{ url('assets/js/simpleNotify.js') }}" type="text/javascript"></script>
 </head>
 
 <body>
