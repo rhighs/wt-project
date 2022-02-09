@@ -1,13 +1,13 @@
 let btnLeft = document.getElementById('btn-left');
 let btnRight = document.getElementById('btn-right');
 let slideNumber = 0;
-let cardInSlide = 2;
+let cardInSlide = 3;
 let waitTime = 5000; // milliseconds
 
 const updateSlide = () => {
 
 	let start = cardInSlide * slideNumber;
-	for (let i = 0; i <= cardInSlide; i++) {
+	for (let i = 0; i < cardInSlide; i++) {
 		let cardNum = start + i;
 		let card = document.getElementById('card-' + i);
 

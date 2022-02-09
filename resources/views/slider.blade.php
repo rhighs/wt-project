@@ -15,7 +15,7 @@
     </div>
 
     <div class="container slider-images">
-        <div class="columns">
+        <div class="columns is-multiline">
             @for ($i = 0; $i < sizeof($skins) - 6; $i++) 
                 <div id="card-{{ $i }}" class="card">
                     <img class="img-fluid" alt="100%x280" src="{{ $skins[$i]['imagelink'] }}">

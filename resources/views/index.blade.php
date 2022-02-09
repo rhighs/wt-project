@@ -42,12 +42,30 @@
                         <strong>SkumontiSkins</strong>
                         <br>
                         <br><img id="logo" src="{{ url('assets/img/logo.png') }}" alt="logo image">
+                        <br>
+                        <br>©️2022 SkumontiSkins, All 
+                        <br>Rights Reserved.
                     </p>
                 </div>
                 <div class="column">
                     <strong>Help</strong>
                     <br>
                     <br><a href="/contact">Contact</a>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column">
+                    Legal Notice
+                </div>
+                <div class="column">
+                    Refund Policy
+                </div>
+                <div class="column">
+                    Terms of Service
+                </div>
+                <div class="column">
+                    Privacy Policy
                 </div>
             </div>
         </div>

@@ -12,3 +12,7 @@
 .columns > * {
     margin: 2%;
 }
+
+.card {
+    width: 29%;
+}

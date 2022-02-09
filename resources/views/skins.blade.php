@@ -7,6 +7,7 @@
         </div>
     </div>
 </section>
+<br>
 <div class="container">
     <nav class="pagination is-centered" aria-label="pagination">
         @if ($currentPage > 1)
