@@ -12,7 +12,7 @@ function onLoad() {
         let jsonData = await res.json();
 
         if(jsonData.success) {
-            
+            var total;
             for (let i = 0; i < jsonData.length; i++) {
                 var elem;
                 var imgCont;
@@ -34,7 +34,14 @@ function onLoad() {
                     remove(jsonData.skins[i]["id"],jsonData.idcart)
                   })
                 imgCont.appendChild(button);
-            } 
+                total+=jsonData.skins[i]["price"];
+            }
+            var btnPay = document.createElement('button');
+                btnPay.innerText = 'Pay';
+                btnPay.addEventListener('click', () => {
+                    pay(jsonData.skins[i]["id"],jsonData.idcart,total)
+                  })
+                document.getElementById("payment").appendChild(btnPay);
             console.log("ok");
         }
     });

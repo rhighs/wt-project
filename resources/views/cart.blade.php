@@ -21,7 +21,7 @@
 </div>
 <section class="container" id ="cartcontainer">
 </section>
-<div class="columns is-mobile is-centered">
+<div class="columns is-mobile is-centered" id ="payment">
 <div class="column is-half is-narrow"></div>
 </div>
 <script src="../js/bulma.js"></script>
