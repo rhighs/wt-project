@@ -1,7 +1,7 @@
 <script type="text/javascript" src="{{ url('assets/js/home/substring.js') }}"></script>
 <link rel="stylesheet" href="{{ url('assets/css/home.css') }}" />
 
-<section style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url({{ url('assets/img/de_nuke.jpg') }})" class="hero is-medium is-info">
+<section style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url({{ url('assets/img/de_nuke.jpg') }})" class="hero is-medium is-info">
     <div class="hero-body">
         <div class="container is-centered">
             <p class="title main-title">

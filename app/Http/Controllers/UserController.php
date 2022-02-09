@@ -91,12 +91,9 @@ class UserController extends BaseController
     private function createCart(int $idUser){
         $cart = new Cart;
         $lastId = Cart::select("id")->orderBy('id', 'desc')->first();
-        if($lastId){
-            $id = $lastId["id"] + 1;
-            $cart["id"] = $id;
-            $cart["iduser"] = $idUser;
-            $cart->save();
-        }
+        $cart["id"] = $lastId ? $lastId["id"] + 1 : $this->generateId();
+        $cart["iduser"] = $idUser;
+        $cart->save();
     }
 
     public function signup(Request $request) {

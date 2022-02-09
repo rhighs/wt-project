@@ -51,7 +51,6 @@
     font-family: 'Bowlby One', cursive !important;
     background: linear-gradient(#ff5a5a, #070707);
     background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 5rem;
     user-select: none;

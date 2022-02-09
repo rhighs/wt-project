@@ -40,13 +40,15 @@ class Skin
 
 $router->get("/skins", "SkinsController@index");
 
+$router->get("/checkout", "CheckoutController@index");
+
 $router->get("/account", "UserController@account");
 
 $router->get("/cart", function() {
     $isAuth = true;
 
     return view("index", [
-        "title" => "cart",
+        "title" => "Carrello",
         "subview" => "cart",
         "isAuthenticated" => $isAuth,
     ]);
@@ -56,7 +58,7 @@ $router->get("/contact", function() {
     $isAuth = true;
 
     return view("index", [
-        "title" => "contact",
+        "title" => "Contatti",
         "subview" => "contact",
         "isAuthenticated" => $isAuth,
     ]);

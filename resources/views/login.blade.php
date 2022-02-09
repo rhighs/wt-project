@@ -1,6 +1,7 @@
 <section class="hero is-medium">
     <div class="hero-body">
         <div class="container">
+            <h1 class="title" style="text-align: center;" >Log in</h1>
             <div class="columns is-justify-content-center">
                 <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
                     <div class="box p-5">
@@ -17,7 +18,7 @@
                         <p id="login-error"></p>
 
                         <div class="mb-4">
-                            <button id="login-button" type="submit" class="button is-fullwidth is-info px-4">Login</button>
+                            <button id="login-button" type="submit" class="button is-fullwidth is-info px-4">Conferma</button>
                         </div>
                     </div>
                 </div>
