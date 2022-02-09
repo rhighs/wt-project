@@ -10,42 +10,27 @@ use App\Models\CartSkin;
 
 use Illuminate\Http\Request;
 
-class SkinsController extends BaseController
+class CartController extends BaseController
 {
-    public function index(Request $request) {
-        $itemsPerPage = 50;
-        $isAuth = true;
-        $pageNumber = (int)$request->get("page");
+    public function getSkin(Request $request) {
         $userCartId = Cart::select("id")->where("iduser", "=", $request->input("userId"))->first();
-        $skinId = collect(CartSkin::select("idkskin")->where("idcart", "=", $userCart["id"]))->toArray();
-        
-        $sk = array();
+        $skinId = CartSkin::select("idskin")->where("idcart", "=", $userCartId["id"])->get();
+        $skins = array();
         for($i = 0; $i < sizeof($skinId); $i++){
-            $skins = Skin::where("id", "=", $skinId[$i]["id"])->first();
-            $sk[] = $skins;
+            $skins[$i]=Skin::where("id", "=", $skinId[$i]["idskin"])->first();
         }
-        $maxPages = (int)(sizeof($skins) / $itemsPerPage) + (sizeof($skins) % $itemsPerPage > 0 ? 1 : 0);
-        $halfPages = $maxPages / 2;
+        return[
+            "success" => true,
+            "skins" => $skins,
+            "idcart" => $userCartId["id"],
+            "length" => sizeof($skins)
+        ];
+    }
 
-        if ($pageNumber > 0 && ($pageNumber - 1) * $itemsPerPage < sizeof($skins)) {
-            $possibleEnd = $pageNumber * $itemsPerPage;
-            if ($possibleEnd > sizeof($skins)) {
-                $itemsPerPage = $possibleEnd - sizeof($skins);
-            }
-            $skins = array_slice($skins, ($pageNumber - 1) * $itemsPerPage, $itemsPerPage);
-        } else {
-            $skins = array_slice($skins, 0, $itemsPerPage);
-            $pageNumber = 1;
-        }
-
-        return view("index", [
-            "title" => "Skins",
-            "subview" => "skins",
-            "isAuthenticated" => $isAuth,
-            "maxPages" => $maxPages,
-            "halfPages" => $halfPages,
-            "currentPage" => $pageNumber,
-            "skins" => $skins
-        ]);
+    public function remove(Request $request) {
+        $res=CartSkin::where('idcart', '=', $request->input("cartId"))->where('idskin', '=', $request->input("skinId"))->delete();
+        return[
+            "success" => $res
+        ];
     }
 }
