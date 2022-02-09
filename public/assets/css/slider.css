@@ -14,5 +14,10 @@
 }
 
 .card {
-    width: 29%;
+    text-align: center;
+}
+
+.card > img {
+    margin-left: auto;
+    margin-right: auto;
 }

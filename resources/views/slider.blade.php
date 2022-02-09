@@ -3,21 +3,26 @@
 <br>
 <div class="slider">
     <div class="row slider-info">
-        <h2 class="is-pulled-left">Le skin più comprate dagli utenti</h2>
-        <div class="buttons is-pulled-right">
-            <a id="btn-left" class="button" role="button" data-slide="prev">
-                &#8592;
-            </a>
-            <a id="btn-right" class="button" role="button" data-slide="next">
-                &#8594;
-            </a>
+        <div class="container">
+            <h2 id="slider-title">Le skin più comprate dagli utenti</h2>
+            <br>
+            <div class="buttons container is-centered">
+                <div class="is-pulled-left">
+                    <a id="btn-left" class="button" role="button" data-slide="prev">
+                        &#8592;
+                    </a>
+                    <a id="btn-right" class="button" role="button" data-slide="next">
+                        &#8594;
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <br><br>
-    <div class="container slider-images">
-        <div class="columns is-multiline">
+    <div class="row container slider-images">
+        <div class="columns is-multiline container">
             @for ($i = 0; $i < sizeof($skins) - 6; $i++) 
-                <div id="card-{{ $i }}" class="card">
+                <div id="card-{{ $i }}" class="card column">
                     <img class="img-fluid" alt="100%x280" src="{{ $skins[$i]['imagelink'] }}">
                     <div class="card-body">
                         <h4 class="card-title">
