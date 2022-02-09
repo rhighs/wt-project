@@ -69,4 +69,5 @@ $router->group(["prefix" => "api"], function () use ($router) {
     $router->post("/skin", "SkinController@addCart");
     $router->post("/transaction/{userId}", "TransactionController@index");
     $router->post("/card/{userId}", "TransactionController@index");
+    $router->post("/cart", "CartController@index");
 });
