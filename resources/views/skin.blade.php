@@ -13,7 +13,7 @@
                             <!-- tab content -->
                             <img id="image" class="content-tab" src="{{ $item['imagelink'] }}" alt="Image">
                             <div id="3d" class="iframe-wrapper content-tab" style="display:none">
-                                <iframe id="3d" src="{{ $item['link3d'] }}" title="3d image"></iframe>
+                                <iframe id="3dframe" src="{{ $item['link3d'] }}" title="3d image"></iframe>
                             </div>
                         </div>
                     </nav>
@@ -35,5 +35,4 @@
     </section>
 </div>
 
-<script type="text/javascript" src="{{ url('assets/js/product/tabs.js') }}"></script>
-<script type="text/javascript" src="{{ url('assets/js/product/cartNotification.js') }}"></script>
+<script type="text/javascript" src="{{ url('assets/js/product/skin.js') }}"></script>

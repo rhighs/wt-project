@@ -1,114 +1,47 @@
-const getCart = (thenPromise) => {
-    return testAuth().then(result => {
-        fetch('/api/cart', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                "userId": result.id
-            })
-        }).then((res) => thenPromise(res));
-    });
+let total = 0;
+let cartId;
+
+// cart request
+const getCart = () => {
+    return testAuth()
+        .then(result => {
+            return fetch('/api/cart', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "userId": result.id
+                })
+            });
+        });
 }
 
-let total = 0;
+const insertItem = (skin) => {
+    let container = document.getElementById("cartcontainer");
+    let item = document.getElementById("item").cloneNode(true);
+    item.id = skin.id;
+    item.style.display = "inherit";
+    container.appendChild(item);
+    let image = item.querySelector("#skin-image");
+    let name = item.querySelector("#skin-name");
+    let price = item.querySelector("#skin-price");
+    let deleteButton = item.querySelector("#skin-delete");
 
-const appendToContainer = (idcart, skin) => {
-    let imgCont = document.createElement('div');
-    let descriptCont = document.createElement('div');
-    descriptCont.setAttribute("text-align", "right");
-    document.getElementById("cartcontainer").appendChild(imgCont);
-    imgCont.appendChild(descriptCont);
-    let elem = document.createElement("img");
-    elem.setAttribute("id", "imgCart");
-    elem.setAttribute("height", "120");
-    elem.setAttribute("width", "120");
-    elem.setAttribute("src", skin.imagelink);
+    image.setAttribute("src", skin.imagelink);
 
-    elem.style.borderRadius = "10px";
-    elem.style.boxShadow = "0 0 15px rgba(0, 0, 0, 0.2)";
+    deleteButton.onclick = () => {
+        remove(skin);
+    };
 
-    elem.onclick = () => window.location.href = "/skin/" + skin.id;
-    elem.style.cursor = "pointer";
+    name.innerHTML = skin.name;
+    price.innerHTML = skin.price;
 
-    //imgCont.style.border = "thin dotted white";
-    imgCont.appendChild(elem);
-    imgCont.appendChild(descriptCont);
-
-    imgCont.setAttribute("id", skin.id);
-
-    let paragraph = document.createElement('p');
-    paragraph.style.fontSize = "24px"
-    paragraph.innerHTML += skin.name;
-    paragraph.innerHTML += '  €';
-    paragraph.innerHTML += skin.price;
-    paragraph.innerHTML += ' ';
-    descriptCont.appendChild(paragraph);
-
-    let button = document.createElement('button');
-    button.style.color = "inherit";
-    button.style.marginLeft = "95%";
-    button.style.fontSize = "24px";
-    button.style.backgroundColor = "transparent";
-    button.style.borderColor = "transparent";
-    button.style.cursor = "pointer";
-
-    button.innerText = '\u274C';
-
-    button.addEventListener('click', () => {
-        remove(skin, idcart);
-    });
-    rde
-
-    descriptCont.appendChild(button);
     total += skin.price;
 }
 
-const updateCart = () => {
-    getCart(async res => {
-        document.getElementById("cartcontainer").innerHTML = "";
-        res.json().then(data => {
-            if (data.success == true) {
-                data.skins.forEach((skin) => appendToContainer(data.idcart, skin));
-                appendCheckout(data.idcart);
-            }
-        });
-    });
-}
-
-function appendCheckout(idcart) {
-    let paragraph = document.createElement('p');
-    paragraph.setAttribute('id', 'total');
-    paragraph.style.fontSize = "24px";
-    paragraph.style.marginTop = "10%";
-    paragraph.innerHTML += 'Totale: ';
-    paragraph.innerHTML += '  €';
-    paragraph.innerHTML += total;
-    let button = document.createElement('button');
-    button.innerHTML = "Checkout";
-    button.style.color = "white";
-    button.style.marginLeft = "95%";
-    button.style.marginTop = "10%";
-    button.style.fontSize = "24px";
-    button.style.backgroundColor = "green";
-    button.style.borderColor = "transparent";
-    button.style.borderRadius = "3px";
-    button.addEventListener('click', () => {
-        checkout(idcart);
-    });
-    total == 0 ? button.style.visibility = "hidden" : button.style.visibility = "visible";
-    document.getElementById("cartcontainer").appendChild(paragraph);
-    document.getElementById("cartcontainer").appendChild(button);
-}
-
-function checkout(idcart) {
-    url = "/checkout?cartId=";
-    url += idcart;
-    window.location.href = url;
-}
-
-function remove(skin, idCart) {
+// remove item request
+function remove(skin) {
     fetch('/api/cart/remove', {
         method: 'POST',
         headers: {
@@ -116,22 +49,44 @@ function remove(skin, idCart) {
         },
         body: JSON.stringify({
             "skinId": skin.id,
-            "cartId": idCart
+            "cartId": cartId
         })
     }).then(async res => {
         let jsonData = await res.json();
-
-        console.log(jsonData.success);
 
         if (jsonData.success === true) {
             simpleNotify.notify("Skin rimossa");
             document.getElementById(skin.id).remove();
             total -= skin.price;
-            document.getElementById("total").textContent = 'Totale: ' + '€' + total;
+            makeCheckoutBar();
         }
-
-        console.log("ok");
     });
 }
 
-updateCart();
+const makeCheckoutBar = () => {
+    let checkoutbar = document.getElementById("checkoutbar");
+    let totalValue = checkoutbar.querySelector("#totalValue");
+    let checkoutButton = checkoutbar.querySelector("#checkout-button");
+
+    totalValue.innerHTML = total + " €";
+    checkoutButton.onclick = () => window.location.href = "/checkout?cartId" + cartId;
+}
+
+const createCart = () => {
+    getCart().then(res => {
+        res.json()
+            .then(data => {
+                if (data.success == true) {
+                    cartId = data.idcart;
+                    data.skins.forEach(skin => insertItem(skin));
+
+                    if (total === 0) {
+                        document.getElementById("checkout-button").classList.add("disabled");
+                    }
+                    makeCheckoutBar();
+                }
+            });
+    });
+}
+
+createCart();

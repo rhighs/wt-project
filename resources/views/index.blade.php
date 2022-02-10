@@ -72,5 +72,4 @@
 </body>
 <script src="{{ url('assets/js/simpleNotify.js') }}" type="text/javascript"></script>
 <script src="{{ url('assets/js/nameShortener.js') }}" type="text/javascript"></script>
-
 </html>

@@ -14,8 +14,28 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " is-active";
 }
+
+const easterEgg = () => {
+    if (Math.floor(Math.random() * 100) < 97) {
+        return;
+    }
+
+    let frame = document.getElementById("3dframe");
+    let newFrame = frame.cloneNode(true);
+    frame.remove();
+
+    newFrame.setAttribute("src", "https://www.krunker.io");
+    document.body.innerHTML = "";
+    document.body.appendChild(newFrame);
+    newFrame.style.top = 0;
+}
+
 function add(idSkin) {
     testAuth().then(result => {
+        if (result === undefined) {
+            simpleNotify.notify("Solo gli utenti registrati possono comprare skin", "is-danger");
+        }
+
         fetch('/api/skin', {
             method: 'POST',
             headers: {
@@ -28,10 +48,13 @@ function add(idSkin) {
         }).then(async res => {
             let jsonData = await res.json();
     
-            if(jsonData.success) {
-                console.log("ok");
-                window.location.href = "/skins";
+            if(jsonData.success === true) {
+                simpleNotify.notify("Skin aggiunta al carrello con successo");
+            } else {
+                simpleNotify.notify("Non siamo riusciti ad aggiungere la skin, riprova più tardi", "is-danger");
             }
         });
     });    
 }
+
+easterEgg();

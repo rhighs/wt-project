@@ -2,7 +2,7 @@
     <div class="hero-body">
         <div class="container is-centered">
             <p class="title">
-                Shop
+                Negozio
             </p>
         </div>
     </div>

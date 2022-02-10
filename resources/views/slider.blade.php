@@ -15,7 +15,7 @@
                 <div id="card-{{ $i }}" class="card column">
                     <img class="img-fluid" alt="100%x280">
                     <div class="card-body">
-                        <h4 class="card-title">
+                        <h4 class="card-title short">
                         </h4>
                     </div>
                 </div>
