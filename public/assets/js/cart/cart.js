@@ -90,6 +90,7 @@ function appendCheckout(idcart) {
     button.addEventListener('click', () => {
         checkout(idcart);
     });
+    total == 0 ? button.style.visibility = "hidden" : button.style.visibility = "visible";
     document.getElementById("cartcontainer").appendChild(paragraph);
     document.getElementById("cartcontainer").appendChild(button);
 }
