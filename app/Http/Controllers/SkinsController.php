@@ -31,11 +31,15 @@ class SkinsController extends BaseController
         switch ($orderBy) {
             case "desc":
                 usort($skins, array('App\Http\Controllers\SkinsController', 'cmpPrice'));
+                $orderBy = "prezzo decrescente";
                 break;
             case "asc":
                 usort($skins, array('App\Http\Controllers\SkinsController', 'cmpPrice'));
                 $skins = array_reverse($skins);
+                $orderBy = "prezzo crescente";
+                break;
             default:
+                $orderBy = "order by";
                 break;
         }
 
@@ -46,7 +50,8 @@ class SkinsController extends BaseController
             "maxPages" => $maxPages,
             "halfPages" => $halfPages,
             "currentPage" => $pageNumber,
-            "skins" => $skins
+            "skins" => $skins,
+            "orderby" => $orderBy
         ]);
     }
     function cmpPrice ($a, $b) {

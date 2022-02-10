@@ -14,14 +14,12 @@
         <div class="control has-icons-left">
             <span class="select">
                 <select id="order" onchange="location = this.value;">
-                    <option selected value="/skins?page={{ $currentPage }}">Order by</option>
-                    <option value="/skins?page=1&orderby=asc">Prezzo crescente</option>
-                    <option value="/skins?page=1&orderby=desc">Prezzo decrescente</option>
+                    <option <?php if ($orderby == "order by") echo "selected"; ?> value="/skins?page={{ $currentPage }}">Ordina per</option>
+                    <option <?php if ($orderby == "prezzo crescente") echo "selected"; ?> value="/skins?page=1&orderby=asc">Prezzo crescente</option>
+                    <option <?php if ($orderby == "prezzo decrescente") echo "selected"; ?> value="/skins?page=1&orderby=desc">Prezzo decrescente</option>
                 </select>
             </span>
-            <span class="icon is-small is-left">
-                <i class="fas fa-globe"></i>
-            </span>
+            <span class="icon is-small is-left">€</span>
         </div>
             @if ($currentPage > 1)
                 <a class="pagination-previous" href="/skins?page={{ $currentPage - 1 }}">Pagina precedente</a>
