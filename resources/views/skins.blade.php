@@ -11,6 +11,18 @@
 <div class="container">
     <div class="section">
         <nav class="pagination is-centered" aria-label="pagination">
+        <div class="control has-icons-left">
+            <span class="select">
+                <select id="order" onchange="location = this.value;">
+                    <option selected value="/skins?page={{ $currentPage }}">Order by</option>
+                    <option value="/skins?page=1&orderby=asc">Prezzo crescente</option>
+                    <option value="/skins?page=1&orderby=desc">Prezzo decrescente</option>
+                </select>
+            </span>
+            <span class="icon is-small is-left">
+                <i class="fas fa-globe"></i>
+            </span>
+        </div>
             @if ($currentPage > 1)
                 <a class="pagination-previous" href="/skins?page={{ $currentPage - 1 }}">Pagina precedente</a>
             @endif
@@ -81,4 +93,8 @@
     </div>
 </div>
 
+<script>
+    let currentPage = '{{ $currentPage }}';
+</script>
 <script src="{{ url('assets/js/nameShortener.js')}}" type="text/javascript"></script>
+<script src="{{ url('assets/js/skins/orderby.js')}}" type="text/javascript"></script>

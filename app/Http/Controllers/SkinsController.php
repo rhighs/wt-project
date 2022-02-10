@@ -27,6 +27,18 @@ class SkinsController extends BaseController
             $pageNumber = 1;
         }
 
+        $orderBy = $request->get("orderby");
+        switch ($orderBy) {
+            case "desc":
+                usort($skins, array('App\Http\Controllers\SkinsController', 'cmpPrice'));
+                break;
+            case "asc":
+                usort($skins, array('App\Http\Controllers\SkinsController', 'cmpPrice'));
+                $skins = array_reverse($skins);
+            default:
+                break;
+        }
+
         return view("index", [
             "title" => "Skins",
             "subview" => "skins",
@@ -36,5 +48,8 @@ class SkinsController extends BaseController
             "currentPage" => $pageNumber,
             "skins" => $skins
         ]);
+    }
+    function cmpPrice ($a, $b) {
+        return ($a['price'] > $b['price']) ? -1 : 1;
     }
 }
