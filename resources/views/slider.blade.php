@@ -11,12 +11,11 @@
     <br><br>
     <div class="row container slider-images">
         <div class="columns is-multiline container">
-            @for ($i = 0; $i < sizeof($skins) - 6; $i++) 
+            @for ($i = 0; $i < 3; $i++) 
                 <div id="card-{{ $i }}" class="card column">
-                    <img class="img-fluid" alt="100%x280" src="{{ $skins[$i]['imagelink'] }}">
+                    <img class="img-fluid" alt="100%x280">
                     <div class="card-body">
-                        <h4 class="card-title short">
-                            {{ $skins[$i]["name"] }}
+                        <h4 class="card-title">
                         </h4>
                     </div>
                 </div>
