@@ -38,4 +38,3 @@
     var skins = <?php echo json_encode($skins); ?>
 </script>
 <script src="{{ url('assets/js/slider/slider.js') }}" type="text/javascript"></script>
-<script src="{{ url('assets/js/skins/nameShortener.js')}}" type="text/javascript"></script>

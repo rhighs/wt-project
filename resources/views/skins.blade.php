@@ -14,34 +14,34 @@
         <div class="control has-icons-left">
             <span class="select">
                 <select id="order" onchange="location = this.value;">
-                    <option <?php if ($orderby == "order by") echo "selected"; ?> value="/skins?page={{ $currentPage }}">Ordina per</option>
-                    <option <?php if ($orderby == "prezzo crescente") echo "selected"; ?> value="/skins?page=1&orderby=asc">Prezzo crescente</option>
-                    <option <?php if ($orderby == "prezzo decrescente") echo "selected"; ?> value="/skins?page=1&orderby=desc">Prezzo decrescente</option>
+                    <option <?php if ($orderby == "") echo "selected"; ?> value="/skins?page={{ $currentPage }}">Ordina per</option>
+                    <option <?php if ($orderby == "asc") echo "selected"; ?> value="/skins?page=1&orderby=asc">Prezzo crescente</option>
+                    <option <?php if ($orderby == "desc") echo "selected"; ?> value="/skins?page=1&orderby=desc">Prezzo decrescente</option>
                 </select>
             </span>
             <span class="icon is-small is-left">€</span>
         </div>
             @if ($currentPage > 1)
-                <a class="pagination-previous" href="/skins?page={{ $currentPage - 1 }}">Pagina precedente</a>
+                <a class="pagination-previous" href="/skins?orderby={{ $orderby }}&page={{ $currentPage - 1 }}">Pagina precedente</a>
             @endif
             @if ($currentPage < $maxPages)
-                <a class="pagination-next" href="/skins?page={{ $currentPage + 1 }}">Pagina successiva</a>
+                <a class="pagination-next" href="/skins?orderby={{ $orderby }}&page={{ $currentPage + 1 }}">Pagina successiva</a>
             @endif
             <ul class="pagination-list">
                 @if ($currentPage !== 1)
-                    <li><a class="pagination-link" aria-label="Goto page 1" href="/skins?page=1">1</a></li>
+                    <li><a class="pagination-link" aria-label="Goto page 1" href="/skins?orderby={{ $orderby }}&page=1">1</a></li>
                 @endif
                 @if ($currentPage > 1)
                     <li><span class="pagination-ellipsis">&hellip;</span></li>
-                    <li><a class="pagination-link" href="/skins?page={{ $currentPage - 1 }}" aria-label="Goto page {{ $halfPages - 1}}">{{ $currentPage - 1 }}</a></li>
+                    <li><a class="pagination-link" href="/skins?orderby={{ $orderby }}&page={{ $currentPage - 1 }}" aria-label="Goto page {{ $halfPages - 1}}">{{ $currentPage - 1 }}</a></li>
                 @endif
                     <li><a class="pagination-link is-current" aria-label="Page {{ $currentPage }}" aria-current="page">{{ $currentPage }}</a></li>
                 @if ($currentPage < $maxPages)
-                    <li><a class="pagination-link" href="/skins?page={{ $currentPage + 1 }}" aria-label="Goto page {{ $currentPage + 1 }}">{{ $currentPage + 1}}</a></li>
+                    <li><a class="pagination-link" href="/skins?orderby={{ $orderby }}&page={{ $currentPage + 1 }}" aria-label="Goto page {{ $currentPage + 1 }}">{{ $currentPage + 1}}</a></li>
                     <li><span class="pagination-ellipsis">&hellip;</span></li>
                 @endif
                 @if ($currentPage !== $maxPages)
-                    <li><a class="pagination-link" href="/skins?page={{ $maxPages }}" aria-label="Goto page {{ $maxPages }}">{{ $maxPages }}</a></li>
+                    <li><a class="pagination-link" href="/skins?orderby={{ $orderby }}&page={{ $maxPages }}" aria-label="Goto page {{ $maxPages }}">{{ $maxPages }}</a></li>
                 @endif
             </ul>
         </nav>
@@ -65,26 +65,26 @@
         </div>
         <nav class="pagination is-centered" role="navigation" aria-label="pagination">
             @if ($currentPage > 1)
-                <a class="pagination-previous" href="/skins?page={{ $currentPage - 1 }}">Pagina precedente</a>
+                <a class="pagination-previous" href="/skins?orderby={{ $orderby }}&page={{ $currentPage - 1 }}">Pagina precedente</a>
             @endif
             @if ($currentPage < $maxPages)
-                <a class="pagination-next" href="/skins?page={{ $currentPage + 1 }}">Pagina successiva</a>
+                <a class="pagination-next" href="/skins?orderby={{ $orderby }}&page={{ $currentPage + 1 }}">Pagina successiva</a>
             @endif
             <ul class="pagination-list">
                 @if ($currentPage !== 1)
-                    <li><a class="pagination-link" aria-label="Goto page 1" href="/skins?page=1">1</a></li>
+                    <li><a class="pagination-link" aria-label="Goto page 1" href="/skins?orderby={{ $orderby }}&page=1">1</a></li>
                 @endif
                 @if ($currentPage > 1)
                     <li><span class="pagination-ellipsis">&hellip;</span></li>
-                    <li><a class="pagination-link" href="/skins?page={{ $currentPage - 1 }}" aria-label="Goto page {{ $halfPages - 1}}">{{ $currentPage - 1 }}</a></li>
+                    <li><a class="pagination-link" href="/skins?orderby={{ $orderby }}&page={{ $currentPage - 1 }}" aria-label="Goto page {{ $halfPages - 1}}">{{ $currentPage - 1 }}</a></li>
                 @endif
                     <li><a class="pagination-link is-current" aria-label="Page {{ $currentPage }}" aria-current="page">{{ $currentPage }}</a></li>
                 @if ($currentPage < $maxPages)
-                    <li><a class="pagination-link" href="/skins?page={{ $currentPage + 1 }}" aria-label="Goto page {{ $currentPage + 1 }}">{{ $currentPage + 1}}</a></li>
+                    <li><a class="pagination-link" href="/skins?orderby={{ $orderby }}&page={{ $currentPage + 1 }}" aria-label="Goto page {{ $currentPage + 1 }}">{{ $currentPage + 1}}</a></li>
                     <li><span class="pagination-ellipsis">&hellip;</span></li>
                 @endif
                 @if ($currentPage !== $maxPages)
-                    <li><a class="pagination-link" href="/skins?page={{ $maxPages }}" aria-label="Goto page {{ $maxPages }}">{{ $maxPages }}</a></li>
+                    <li><a class="pagination-link" href="/skins?orderby={{ $orderby }}&page={{ $maxPages }}" aria-label="Goto page {{ $maxPages }}">{{ $maxPages }}</a></li>
                 @endif
             </ul>
         </nav>
@@ -94,5 +94,4 @@
 <script>
     let currentPage = '{{ $currentPage }}';
 </script>
-<script src="{{ url('assets/js/nameShortener.js')}}" type="text/javascript"></script>
 <script src="{{ url('assets/js/skins/orderby.js')}}" type="text/javascript"></script>
