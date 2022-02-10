@@ -48,7 +48,7 @@ const appendToContainer = (idcart, skin) => {
     button.innerText = 'X';
 
     button.addEventListener('click', () => {
-        remove(skin.id, idcart);
+        remove(skin, idcart);
     });
 
     descriptCont.appendChild(button);
@@ -73,11 +73,12 @@ const updateCart = () => {
 
 function appendCheckout(idcart) {
     let paragraph = document.createElement('p');
+    paragraph.setAttribute('id', 'total');
     paragraph.style.fontSize="24px";
     paragraph.style.marginTop="10%";
     paragraph.innerHTML += 'Totale: ';
-    paragraph.innerHTML += total;
     paragraph.innerHTML += '  €';
+    paragraph.innerHTML += total;
     let button = document.createElement('button');
     button.innerHTML = "Checkout";
     button.style.color="white";
@@ -101,14 +102,14 @@ function checkout(idcart) {
     window.location.href = url;
 }
 
-function remove(skinId, idCart) {
+function remove(skin, idCart) {
     fetch('/api/cart/remove', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            "skinId": skinId,
+            "skinId": skin.id,
             "cartId": idCart
         })
     }).then(async res => {
@@ -118,8 +119,9 @@ function remove(skinId, idCart) {
 
         if (jsonData.success === true) {
             simpleNotify.notify("Skin rimossa");
-            document.getElementById(skinId).remove();
-            location.reload();
+            document.getElementById(skin.id).remove();
+            total -= skin.price;
+            document.getElementById("total").textContent = 'Totale: ' + '€' + total;
         }
 
         console.log("ok");

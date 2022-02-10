@@ -29,7 +29,7 @@ class CartController extends BaseController
 
     public function remove(Request $request) {
         $res = CartSkin::where('idcart', '=', $request->input("cartId"))
-            ->where('idskin', '=', $request->input("skinId"))
+            ->where('idskin', '=', $request->input("skinId"))->limit(1)
             ->delete();
 
         return[
