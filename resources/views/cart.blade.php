@@ -19,8 +19,8 @@
     </div>
 </div>
 </div>
-<section class="container" id ="cartcontainer">
-</section>
+<div class="container" id ="cartcontainer">
+</div>
 <div class="columns is-mobile is-centered" id ="payment">
 <div class="column is-half is-narrow"></div>
 </div>

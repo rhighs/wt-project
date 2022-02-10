@@ -1,14 +1,15 @@
 <section class="hero is-medium">
     <div class="hero-body">
         <div class="container">
+            <h1 class="title" style="text-align: center;" >Sign Up</h1>
             <div class="columns is-justify-content-center">
                 <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
                     <div class="box p-5">
                         <label class="is-block mb-4">
                             <span class="is-block mb-2">Nome</span>
-                            <input id="signup-name" required type="text" class="input"/>
+                            <input id="signup-name" required type="text" class="input" />
                             <span class="is-block mb-2">Cognome</span>
-                            <input id="signup-surname" required type="text" class="input"/>
+                            <input id="signup-surname" required type="text" class="input" />
                             <span class="is-block mb-2">Indirizzo email</span>
                             <input id="signup-email" required type="email" class="input" placeholder="pinco.pallo@pallino.com" />
                         </label>
@@ -25,7 +26,7 @@
                         </div>
 
                         <div class="mb-4">
-                            <button id="signup-button" type="submit" class="button is-fullwidth is-info px-4">Sign Up</button>
+                            <button id="signup-button" type="submit" class="button is-fullwidth is-info px-4">Conferma</button>
                         </div>
                     </div>
                 </div>

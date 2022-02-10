@@ -40,13 +40,15 @@ class Skin
 
 $router->get("/skins", "SkinsController@index");
 
+$router->get("/checkout", "CheckoutController@index");
+
 $router->get("/account", "UserController@account");
 
 $router->get("/cart", function() {
     $isAuth = true;
 
     return view("index", [
-        "title" => "cart",
+        "title" => "Carrello",
         "subview" => "cart",
         "isAuthenticated" => $isAuth,
     ]);
@@ -56,7 +58,7 @@ $router->get("/contact", function() {
     $isAuth = true;
 
     return view("index", [
-        "title" => "contact",
+        "title" => "Contatti",
         "subview" => "contact",
         "isAuthenticated" => $isAuth,
     ]);
@@ -69,6 +71,7 @@ $router->group(["prefix" => "api"], function () use ($router) {
     $router->post("/skin", "SkinController@addCart");
     $router->post("/cart", "CartController@getSkin");
     $router->post("/cart/remove", "CartController@remove");
+    $router->post("/cart/checkout", "CartController@checkout");
     $router->post("/transaction/{userId}", "TransactionController@index");
     $router->post("/card/{userId}", "TransactionController@index");
 });

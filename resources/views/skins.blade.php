@@ -12,10 +12,10 @@
     <div class="section">
         <nav class="pagination is-centered" aria-label="pagination">
             @if ($currentPage > 1)
-                <a class="pagination-previous" href="/skins?page={{ $currentPage - 1 }}">Previous</a>
+                <a class="pagination-previous" href="/skins?page={{ $currentPage - 1 }}">Pagina precedente</a>
             @endif
             @if ($currentPage < $maxPages)
-                <a class="pagination-next" href="/skins?page={{ $currentPage + 1 }}">Next page</a>
+                <a class="pagination-next" href="/skins?page={{ $currentPage + 1 }}">Pagina successiva</a>
             @endif
             <ul class="pagination-list">
                 @if ($currentPage !== 1)
@@ -54,10 +54,10 @@
         </div>
         <nav class="pagination is-centered" role="navigation" aria-label="pagination">
             @if ($currentPage > 1)
-                <a class="pagination-previous" href="/skins?page={{ $currentPage - 1 }}">Previous</a>
+                <a class="pagination-previous" href="/skins?page={{ $currentPage - 1 }}">Pagina precedente</a>
             @endif
             @if ($currentPage < $maxPages)
-                <a class="pagination-next" href="/skins?page={{ $currentPage + 1 }}">Next page</a>
+                <a class="pagination-next" href="/skins?page={{ $currentPage + 1 }}">Pagina successiva</a>
             @endif
             <ul class="pagination-list">
                 @if ($currentPage !== 1)

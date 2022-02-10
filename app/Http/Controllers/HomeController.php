@@ -26,7 +26,7 @@ class HomeController extends BaseController
         }
 
         return view("index", [
-            "title" => "index",
+            "title" => "Home",
             "subview" => "home",
             "skins" => $foundSkins,
             "isAuthenticated" => $isAuth

@@ -59,8 +59,10 @@ const signUp = () => {
             email: email,
             password: password
         })
-    }).then(res => {
-        if (res.success === true) {
+    }).then(async res => {
+        let jsonData = await res.json();
+
+        if (jsonData.success === true) {
             resetFields();
             setTimeout(() => {
                 window.location.href = "/login";
