@@ -36,6 +36,8 @@
 
 .card {
     border-radius: 8px;
+    user-select: none;
+    cursor: pointer;
 }
 
 .row-card .card {
