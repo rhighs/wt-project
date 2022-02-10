@@ -45,7 +45,8 @@
                             </figure>
                         </div>
                         <div class="card-link">
-                            <p class="container">{{ $skins[$i]["name"] }}</p>
+                            <p class="container skin-name short">{{ $skins[$i]["name"] }}</p>
+                            <p class="container skin-price">€{{ $skins[$i]["price"] }}</p>
                         </div>
                     </a>
                 </div>
@@ -79,3 +80,5 @@
         </nav>
     </div>
 </div>
+
+<script src="{{ url('assets/js/nameShortener.js')}}" type="text/javascript"></script>

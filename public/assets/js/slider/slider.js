@@ -17,6 +17,8 @@ const updateSlide = () => {
 		let title = card.childNodes[3].childNodes[1];
 		title.innerHTML = skins[cardNum]['name']
 	}
+
+	updateName(40);
 }
 
 const resetSlideTimer = () => {

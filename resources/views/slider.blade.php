@@ -15,7 +15,7 @@
                 <div id="card-{{ $i }}" class="card column">
                     <img class="img-fluid" alt="100%x280" src="{{ $skins[$i]['imagelink'] }}">
                     <div class="card-body">
-                        <h4 class="card-title">
+                        <h4 class="card-title short">
                             {{ $skins[$i]["name"] }}
                         </h4>
                     </div>
@@ -39,3 +39,4 @@
     var skins = <?php echo json_encode($skins); ?>
 </script>
 <script src="{{ url('assets/js/slider/slider.js') }}" type="text/javascript"></script>
+<script src="{{ url('assets/js/skins/nameShortener.js')}}" type="text/javascript"></script>
