@@ -4,6 +4,7 @@
     }
 </style>
 
+<link rel="stylesheet" href="{{ url('assets/css/loader.css') }}" />
 
 <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
 
@@ -26,6 +27,10 @@
     <div class="h-full">
         <!-- Card -->
         <div class="max-w-[360px] mx-auto">
+            <div id="loader-wrapper" class="loader-wrapper">
+                <div class="loader is-loading">
+                </div>
+            </div>
             <div class="bg-white shadow-lg rounded-lg mt-9">
                 <!-- Card header -->
                 <header class="text-center container px-5 pb-5">

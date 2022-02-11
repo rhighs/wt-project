@@ -100,6 +100,8 @@ const checkout = () => {
         return;
     }
 
+
+    document.getElementById("loader-wrapper").classList.add("is-active");
     fetch("/api/acceptPayment", {
         method: "POST",
         headers: {
@@ -111,13 +113,14 @@ const checkout = () => {
         })
     }).then(async res => {
         let jsonData = await res.json();
+        document.getElementById("loader-wrapper").classList.remove("is-active");
 
         if (jsonData.success === true) {
             simpleNotify.notify("Verrai reindirizzato a breve...", "is-info");
             simpleNotify.notify("Transazione andata a buon fine. grazie per aver comprato su SkuSkins!");
             setTimeout(() => window.location.href = "/account", 5000);
         }
-    })
+    });
 }
 
 const renderInfo = () => {
