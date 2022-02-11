@@ -69,7 +69,7 @@ const makeCheckoutBar = () => {
     let checkoutButton = checkoutbar.querySelector("#checkout-button");
 
     totalValue.innerHTML = total + " €";
-    checkoutButton.onclick = () => window.location.href = "/checkout?cartId" + cartId;
+    checkoutButton.onclick = () => window.location.href = "/checkout?cartId=" + cartId;
     if (total === 0) {
         document.getElementById("checkout-button").classList.add("disabled");
     }

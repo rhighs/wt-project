@@ -15,16 +15,17 @@ use App\Models\Transaction;
 class CheckoutController extends BaseController
 {
     public function index(Request $request) {
-        $cartId = $request->get("cardId");
+        $cartId = $request->get("cartId");
+        $containsSkins = sizeof(collect(CartSkin::where("idcart", "=", $cartId)->get())->toArray()) > 0;
 
-        if (Cart::where("id", "=", $cartId)->first() == null) {
+        if (Cart::where("id", "=", $cartId)->first() == null || $containsSkins === false) {
             $data = [
                 "subview" => "error",
                 "errorTitle" => "ERROR 404: NOT FOUND",
                 "errorMessage" => "Non siamo riusciti a trovare il contenuto :("
             ];
 
-            return view(view("error", $data), 404);
+            return response(view("error", $data), 404);
         }
 
         return view("index", [
@@ -53,7 +54,7 @@ class CheckoutController extends BaseController
         $userId = Cart::where("id", "=", $jsonData["cartId"])->first()["iduser"];
         $skinsInCart = collect(CartSkin::where("idcart", "=", $jsonData["cartId"])->get())->toArray();
         $totalPrice = array_reduce(array_map(function ($skinInCart) {
-            return Skin::where("id", "=", $skinInCart["id"])->first()["price"];
+            return Skin::where("id", "=", $skinInCart["idskin"])->first()["price"];
         }, $skinsInCart), function ($carry, $item) {
             $carry += $item;
             return $carry;
@@ -61,7 +62,7 @@ class CheckoutController extends BaseController
 
         $card = CardUser::where("cardnumber", "=", $jsonData["cardNumber"])->first();
         if (!$card) {
-            $card = CardUser::crate();
+            $card = CardUser::create();
             $card["iduser"] = $userId;
             $card["cardnumber"] = $jsonData["cardNumber"];
             $card["expiry"] = $jsonData["cardExpiry"];
@@ -76,10 +77,10 @@ class CheckoutController extends BaseController
         $transaction["price"] = $totalPrice;
         $transaction->save();
 
-        foreach ($skinsInCart as $skin) {
+        foreach ($skinsInCart as $skinInCart) {
             $skinTransaction = SkinTransaction::create();
             $skinTransaction["idtransaction"] = $transaction["id"];
-            $skinTransaction["idskin"] = $skin["id"];
+            $skinTransaction["idskin"] = $skinInCart["idskin"];
             $skinTransaction->save();
         }
 

@@ -40,7 +40,7 @@ class Skin
 
 $router->get("/skins", "SkinsController@index");
 
-$router->get("/checkout?", "CheckoutController@index");
+$router->get("/checkout", "CheckoutController@index");
 
 $router->get("/account", "UserController@account");
 
@@ -74,4 +74,5 @@ $router->group(["prefix" => "api"], function () use ($router) {
     $router->post("/cart/checkout", "CartController@checkout");
     $router->post("/transaction/{userId}", "TransactionController@index");
     $router->post("/card/{userId}", "TransactionController@index");
+    $router->post("/acceptPayment", "CheckoutController@acceptPayment");
 });
