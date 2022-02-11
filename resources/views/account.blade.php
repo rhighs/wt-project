@@ -1,19 +1,16 @@
-<div class="container">
+<div class="">
     <div class="columns">
         <div class="column">
-            <section class="hero is-info welcome is-medium">
+            <section class="hero is-info welcome is-medium" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url({{ url('assets/img/dust2.jpg') }})">
                 <div class="hero-body">
                     <div class="container">
-                        <div class="columns">
-                            <div class="column">
-                                <h1 class="title">
-                                Benvenuto,
-                                    <span id="name">
-                                        <!-- Nome qui -->
-                                    </span>
-                                </h1>
+                        <div class="columns user-data">
+                            <div class="column column-profile">
+                                <div class="container">
+                                    <img id="profile-picture" src="{{ url('assets/img/profile_image.jpg') }}">
+                                </div>
                             </div>
-                            <div class="column">
+                            <div class="column column-data">
                                 <div class="container box">
                                     <div class="row" id="userInfo"><b>
                                         <span id="user-name">
@@ -52,7 +49,7 @@
             </section>
             <div class="columns">
                 <div class="column">
-                    <table class="table is-fullwidth transaction-table">
+                    <table class="table transaction-table">
                         <thead>
                             <tr>
                                 <th title="Position">Id</th>

@@ -106,3 +106,25 @@ table > * {
 .form-data #error-list {
     color: red;
 }
+
+table {
+    width: 85%;
+    border-radius: 7%;
+    margin: 3% auto 3% auto;
+    border: 1px solid grey;
+}
+
+.column-profile, .column-data {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.column-profile {
+    text-align: center;
+}
+
+#profile-picture {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
