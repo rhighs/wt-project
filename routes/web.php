@@ -40,7 +40,7 @@ class Skin
 
 $router->get("/skins", "SkinsController@index");
 
-$router->get("/checkout", "CheckoutController@index");
+$router->get("/checkout?", "CheckoutController@index");
 
 $router->get("/account", "UserController@account");
 

@@ -18,17 +18,6 @@ class UserController extends BaseController
         $this->tokenLength = 60;
     }
 
-    public function generateId() {
-        $maxIdValue = 9999999999999999;
-        $id = rand(0, $maxIdValue);
-
-        while (Users::where("id", "=", $id)->first() != null) {
-            $id = rand(0, $maxIdValue);
-        }
-
-        return $id;
-    }
-
     public static function test(Request $request) {
         $token = $request->header("token");
 
@@ -89,9 +78,7 @@ class UserController extends BaseController
     }
 
     private function createCart(int $idUser){
-        $cart = new Cart;
-        $lastId = Cart::select("id")->orderBy('id', 'desc')->first();
-        $cart["id"] = $lastId ? $lastId["id"] + 1 : $this->generateId();
+        $cart = Cart::create();
         $cart["iduser"] = $idUser;
         $cart->save();
     }
@@ -107,6 +94,7 @@ class UserController extends BaseController
 
         $user = Users::where("email", "=", $jsonData["email"])->first();
 
+
         if ($user != null) {
             return [
                 "success" => false,
@@ -115,8 +103,7 @@ class UserController extends BaseController
         }
 
         if ($isValidRequest) {
-            $user = new Users;
-            $user["id"] = $this->generateId();
+            $user = Users::create();
             $user["nome"] = $jsonData["name"];
             $user["cognome"] = $jsonData["surname"];
             $user["email"] = $jsonData["email"];
@@ -141,6 +128,4 @@ class UserController extends BaseController
             ];
         }
     }
-
-    
 }
