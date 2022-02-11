@@ -128,4 +128,18 @@ class UserController extends BaseController
             ];
         }
     }
+
+    public function modify(Request $request, int $userId){
+        $jsonData = $request->json()->all();
+        $id = $userId;
+            Users::where("id", $id)->update([
+                'nome' => $jsonData["name"],
+                'cognome' => $jsonData["surname"],
+                'email' => $jsonData["email"],
+                'password' => sha1($this->salt . $jsonData["password"])
+            ]);
+            return [
+                    "success" => true
+                ];
+    }
 }

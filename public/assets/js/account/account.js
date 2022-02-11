@@ -61,14 +61,18 @@ const formCheck = () => {
 }
 
 const sendData = (data) => {
-    fetch('api/account/' + userId, { 
-        method: 'PATCH',
+    fetch('/api/account/' + userId, { 
+        method: 'POST',
         body: JSON.stringify({
             name: data.name,
             surname: data.surname,
             email: data.email,
             password: data.password
         })
+    }).then(async result => {
+        let jsonData = await result.json();
+        jsonData.success ? console.log("ok") : console.log(jsonData.error);
+        // Display transactions...
     });
 }
 

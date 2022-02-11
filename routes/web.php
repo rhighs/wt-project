@@ -74,4 +74,5 @@ $router->group(["prefix" => "api"], function () use ($router) {
     $router->post("/cart/checkout", "CartController@checkout");
     $router->post("/transaction/{userId}", "TransactionController@index");
     $router->post("/card/{userId}", "TransactionController@index");
-});
+    $router->post("/account/{userId}", "UserController@modify");
+    });
