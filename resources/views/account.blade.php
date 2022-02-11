@@ -52,7 +52,7 @@
             </section>
             <div class="columns">
                 <div class="column">
-                    <table class="table is-fullwidth">
+                    <table class="table is-fullwidth transaction-table">
                         <thead>
                             <tr>
                                 <th title="Position">Id</th>
@@ -62,14 +62,13 @@
                                 <th title="Lost">Numero carta</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th>1</th>
-                                <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Leicester City</a> <strong>(C)</strong>
-                                </td>
-                                <td>€99</td>
-                                <td>XX/XX/20XX</td>
-                                <td>**** **** **** 1234</td>
+                        <tbody id="transaction-container">
+                            <tr class="copyRow">
+                                <th id="transaction-id"></th>
+                                <td id="transaction-num">Leicester City</td>
+                                <td id="transaction-price">€99</td>
+                                <td id="transaction-data">XX/XX/20XX</td>
+                                <td id="transaction-card">**** **** **** 1234</td>
                             </tr>
                         </tbody>
                     </table>

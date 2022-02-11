@@ -1,4 +1,5 @@
 let userId;
+let transactionsNumber = 0;
 
 const loadData = (user) => {
     let userName = document.getElementById('user-name');
@@ -10,8 +11,14 @@ const loadData = (user) => {
     userSurname.innerHTML = user.surname;
     userId.innerHTML = user.id;
     userEmail.innerHTML = user.email;
+}
 
-    console.log(user);
+const updateData = () => {
+    testAuth()
+        .then(user => {
+            userId = user.id;
+            loadData(user);
+        })
 }
 
 const formCheck = () => {
@@ -60,6 +67,14 @@ const formCheck = () => {
     return true;
 }
 
+const clearForm = () => {
+    document.getElementById('form-name').value = "";
+    document.getElementById('form-surname').value = "";
+    document.getElementById('form-email').value = "";
+    document.getElementById('form-psw').value = "";
+    document.getElementById('form-confirm-psw').value = "";
+}
+
 const sendData = (data) => {
     fetch('api/account/' + userId, { 
         method: 'PATCH',
@@ -70,6 +85,37 @@ const sendData = (data) => {
             password: data.password
         })
     });
+
+    document.getElementById("modifyForm").style.display = "none";
+}
+
+const getCards = () => {
+    fetch('api/card/' + userId, {
+        method: "POST"
+    });
+}
+
+const removeId = (node) => {
+    if(node.hasChildNodes()) {
+        node.childNodes.forEach( child => removeId(child) );
+    } else {
+        node.removeAttribute('id');
+    }
+}
+
+const addTransaction = (t) => {
+    transactionsNumber++;
+    let row = document.getElementsByClassName('copyRow').clone(true);
+
+    row.classList.remove('copyRow');
+    row.querySelector('#transaction-id').innerHTML = transactionsNumber; 
+    row.querySelector('#transaction-num').innerHTML = t.id;
+    row.querySelector('#transaction-price').innerHTML = t.price;
+    row.querySelector('#transaction-data').innerHTML = t.timestamp;
+    row.querySelector('#transaction-card').innerHTML = "ricco proprio";
+
+    removeId(row);
+    document.getElementById('transaction-container').appendChild(row);
 }
 
 let modifyDataButton = document.getElementById('modifyCredentials');
@@ -80,6 +126,7 @@ modifyDataButton.addEventListener("click", () => {
 let closeFormButton = document.getElementById('closeButton');
 closeFormButton.addEventListener('click', () => {
     document.getElementById("modifyForm").style.display = "none";
+    clearForm();
 });
 
 let saveFormButton = document.getElementById('save-button');
@@ -99,6 +146,9 @@ let saveFormButton = document.getElementById('save-button');
         password: password
     }
     sendData(data);
+    clearForm();
+    updateData();
+    simpleNotify.notify("Modifiche effettuate con successo", undefined);
 });
 
 redirectIfNotAuthenticated();
@@ -113,6 +163,10 @@ testAuth()
         }).then(async result => {
             let jsonData = await result.json();
             console.log(jsonData);
-            // Display transactions...
+            
+            if (jsonData.success == false) { return; }
+            
+            let transactions = jsonData.data;
+            transactions.forEach(t => addTransaction(t));
         });
     });
