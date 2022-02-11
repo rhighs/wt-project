@@ -34,11 +34,11 @@
                     </img>
                     <!-- Card name -->
                     <h3 class="text-xl font-bold text-gray-900 mb-1">Fatturato da SkuSkins s.r.l.</h3>
-                    <div class="text-sm font-medium text-gray-500">Invoice #00224 <!-- id transazione --></div>
+                    <div class="text-sm font-medium text-gray-500">Invoice #<span id="invoice-id"></span></div>
                 </header>
                 <!-- Card body -->
                 <div class="bg-gray-100 text-center px-5 py-6">
-                    <div class="text-sm mb-6"><strong class="font-semibold">$2.700</strong> due Jan 27, 2022</div>
+                    <div class="mb-6">€<span class="subtitle" style="color: black;" id="total-price"></span> In data <span id="checkout-date"></span></div>
                     <div class="space-y-3">
                         <div class="flex shadow-sm rounded">
                             <div class="flex-grow">

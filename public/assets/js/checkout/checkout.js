@@ -119,3 +119,16 @@ const checkout = () => {
         }
     })
 }
+
+const renderInfo = () => {
+    fetch("/api/cart/info/" + cartId, {
+        method: "POST",
+    }).then(async res => {
+        let jsonData = await res.json();
+        document.getElementById("total-price").innerHTML = jsonData.totalPrice;
+        document.getElementById("invoice-id").innerHTML = cartId;
+        document.getElementById("checkout-date").innerHTML = new Date().toLocaleString("it-EU");
+    });
+}
+
+renderInfo();

@@ -36,4 +36,26 @@ class CartController extends BaseController
             "success" => $res > 0
         ];
     }
+
+    public function cartInfo($cartId) {
+        if (Cart::where("id", "=", $cartId)->first() == null) {
+            return [
+                "success" => false
+            ];
+        }
+
+        $skinsInCart = collect(CartSkin::where("idcart", "=", $cartId)->get())->toArray();
+        $totalPrice = array_reduce(array_map(function ($skinInCart) {
+            return Skin::where("id", "=", $skinInCart["idskin"])->first()["price"];
+        }, $skinsInCart), function ($carry, $item) {
+            $carry += $item;
+            return $carry;
+        });
+
+        return [
+            "success" => true,
+            "skins" => $skinsInCart,
+            "totalPrice" => $totalPrice
+        ];
+    }
 }

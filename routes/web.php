@@ -1,18 +1,5 @@
 <?php
 
-/** @var \Laravel\Lumen\Routing\Router $router */
-
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
-
 $router->get("/", "HomeController@index");
 
 $router->get("/skin/{id}", function($id) use ($router) {
@@ -23,20 +10,11 @@ $router->get("/skin/{id}", function($id) use ($router) {
 $router->get("/signup", "SignUpController@index");
 
 $router->get("/login", function() {
-    $isAuth = false;
-
     return view("index", [
         "title" => "Login",
-        "subview" => "login",
-        "isAuthenticated" => $isAuth,
+        "subview" => "login"
     ]);
 });
-
-class Skin
-{
-    public $name;
-    public $link;
-}
 
 $router->get("/skins", "SkinsController@index");
 
@@ -45,35 +23,29 @@ $router->get("/checkout", "CheckoutController@index");
 $router->get("/account", "UserController@account");
 
 $router->get("/cart", function() {
-    $isAuth = true;
-
     return view("index", [
         "title" => "Carrello",
-        "subview" => "cart",
-        "isAuthenticated" => $isAuth,
+        "subview" => "cart"
     ]);
 });
 
 $router->get("/contact", function() {
-    $isAuth = true;
-
     return view("index", [
         "title" => "Contatti",
-        "subview" => "contact",
-        "isAuthenticated" => $isAuth,
+        "subview" => "contact"
     ]);
 });
 
 $router->group(["prefix" => "api"], function () use ($router) {
-    $router->post("/testAuth", "UserController@test");
     $router->post("/login", "UserController@login");
-    $router->post("/signup", "UserController@signup");
     $router->post("/skin", "SkinController@addCart");
     $router->post("/cart", "CartController@getSkin");
+    $router->post("/signup", "UserController@signup");
+    $router->post("/testAuth", "UserController@test");
     $router->post("/cart/remove", "CartController@remove");
     $router->post("/cart/checkout", "CartController@checkout");
-    $router->post("/transaction/{userId}", "TransactionController@index");
     $router->post("/card/{userId}", "TransactionController@index");
-    $router->post("/account/{userId}", "UserController@modify");
+    $router->post("/cart/info/{cartId}", "CartController@cartInfo");
     $router->post("/acceptPayment", "CheckoutController@acceptPayment");
+    $router->post("/transaction/{userId}", "TransactionController@index");
 });
