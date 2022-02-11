@@ -116,7 +116,7 @@ const addTransaction = (t) => {
     row.querySelector('#transaction-num').innerHTML = t.id;
     row.querySelector('#transaction-price').innerHTML = t.price;
     row.querySelector('#transaction-data').innerHTML = t.timestamp;
-    row.querySelector('#transaction-card').innerHTML = "ricco proprio";
+    row.querySelector('#transaction-card').innerHTML = t.cardnumber;
 
     removeId(row);
     document.getElementById('transaction-container').appendChild(row);

@@ -19,7 +19,7 @@ class TransactionController extends BaseController
 
         $transactions = [];
         foreach ($cardsUser as $card) {
-            $newTransactions = collect(Transaction::where("idcard", "=", $card["id"])->get())->toArray();
+            $newTransactions = collect(Transaction::join("carduser", "idcard", "=", $card["id"])->where("idcard", "=", $card["id"])->get())->toArray();
             $transactions = array_merge($transactions, $newTransactions);
         }
 
@@ -28,5 +28,6 @@ class TransactionController extends BaseController
             "data" => $transactions
         ];
     }
+
 
 }
