@@ -55,7 +55,12 @@ const fetchSkins = async (maxItems) => {
     });
 
     await fetchSkins(500).then(items => {
-        client.connect();
+        try {
+            client.connect();
+        } catch (err) {
+            console.log(err);
+            return;
+        }
 
         const queryString = `INSERT INTO skin(id, name, imagelink, link3d, price, rarity) values ($1, $2, $3, $4, $5, $6)`;
         const queryValues = (item) => [item.id, item.fullName, item.image, item.link3d, parseInt(item.price), item.rarity];
@@ -67,6 +72,4 @@ const fetchSkins = async (maxItems) => {
                 }
             }));
     });
-
-    client.end();
 })();
