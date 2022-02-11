@@ -39,22 +39,27 @@
                 <!-- Card body -->
                 <div class="bg-gray-100 text-center px-5 py-6">
                     <div class="text-sm mb-6"><strong class="font-semibold">$2.700</strong> due Jan 27, 2022</div>
-                    <form class="space-y-3">
+                    <div class="space-y-3">
                         <div class="flex shadow-sm rounded">
                             <div class="flex-grow">
-                                <input name="card-nr" class="text-sm text-gray-800 bg-white rounded-l leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" type="text" placeholder="Numero della carta" aria-label="Numero della carta" />
+                                <input name="card-nr" class="text-sm text-gray-800 bg-white rounded-l leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" type="text" maxlength="16" placeholder="Numero della carta" aria-label="Numero della carta" />
                             </div>
                             <div class="flex-none w-[4.8rem]">
-                                <input name="card-expiry" class="text-sm text-gray-800 bg-white leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" type="text" placeholder="MM/YY" aria-label="Data di scadenza" />
+                                <input name="card-expiry" class="text-sm text-gray-800 bg-white leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" type="text" placeholder="MM/YY" maxlength="5" aria-label="Data di scadenza" />
                             </div>
                             <div class="flex-none w-[3.5rem]">
-                                <input name="card-cvc" class="text-sm text-gray-800 bg-white rounded-r leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" type="text" placeholder="CVC" aria-label="CVC" />
+                                <input name="card-cvc" class="text-sm text-gray-800 bg-white rounded-r leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" maxlength="3" type="text" placeholder="CVC" aria-label="CVC" />
                             </div>
                         </div>
-                        <button type="submit" class="font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-150 ease-in-out w-full bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2">Paga</button>
-                    </form>
+                        <button id="checkout-button" class="font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-150 ease-in-out w-full bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2">Paga</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    const cartId = {{ $cartId }};
+</script>
+<script src="{{ url('assets/js/checkout/checkout.js') }}" type="text/javascript"></script>
