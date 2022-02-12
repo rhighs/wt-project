@@ -46,7 +46,7 @@ CREATE TABLE SkinTransaction
 CREATE TABLE Transaction
 (
   Id        BIGINT    NOT NULL,
-  IdCard    BIGINT    NOT NULL,
+  IdCard    BIGINT   ,
   Timestamp TIMESTAMP,
   Price     BIGINT   ,
   PRIMARY KEY (Id)

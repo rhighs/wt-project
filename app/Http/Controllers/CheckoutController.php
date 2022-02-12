@@ -76,7 +76,7 @@ class CheckoutController extends BaseController
         $transaction = Transaction::create();
         $transaction["idcard"] = $card["id"];
         $transaction["timestamp"] = date("Y-m-d H:i:s");
-        $transaction["price"] = $totalPrice;
+        $transaction["price"] = $totalPrice * -1;
         $transaction->save();
 
         foreach ($skinsInCart as $skinInCart) {
