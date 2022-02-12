@@ -175,8 +175,8 @@ const setCards = () => {
     })
 }
 
-const insertSkin = (skin) => {
-    let container = document.getElementById("skincontainer");
+const insertSkin = (skin, skincontainer) => {
+    let container = document.getElementById(skincontainer);
 
     let item = document.getElementById("item").cloneNode(true);
     item.id = skin.idskin;
@@ -205,7 +205,7 @@ displayOrRedirect().then(() => {
                 method: "POST"
             }).then(async res => {
                 let jsonData = await res.json();
-                jsonData.skins.forEach(item => insertSkin(item));
+                jsonData.skins.forEach(item => insertSkin(item, "skincontainer"));
             });
 
             fetch("/api/transaction/" + user.id, {
@@ -318,12 +318,12 @@ const sendSkin = (skin) => {
         });
 }
 
-const addSoldSkin = () => {
-
+const addSoldSkin = (skin) => {
+    insertSkin(skin, "soldSkincontainer");
 }
 
 const getSoldSkins = () => {
-    fetch('api/skin/sold/' + userId, {
+    fetch('api/skin/soldBy/' + userId, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -331,7 +331,7 @@ const getSoldSkins = () => {
     }).then( async res => {
         let jsonData = await res.json();
         if (jsonData.success == true) {
-            let soldSkins = jsonData.data;
+            let soldSkins = jsonData.skins;
             soldSkins.forEach( skin => addSoldSkin(skin) );
         }
     });

@@ -155,7 +155,7 @@
                         </div>
                     </div>
                     <div id="yourSkins" class="content-tab">
-                        <div class="container mt-5" id="skincontainer">
+                        <div class="container mt-5" id="soldSkincontainer">
                             <div id="sellItem" class="box" style="display: none;">
                                 <div class="columns item">
                                     <div class="column is-2">
