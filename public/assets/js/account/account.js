@@ -19,11 +19,10 @@ const updateData = () => {
         .then(user => {
             userId = user.id;
             loadData(user);
-        })
+        });
 }
 
 const formCheck = () => {
-
     let name = document.getElementById('form-name').value;
     let surname = document.getElementById('form-surname').value;
     let email = document.getElementById('form-email').value;
@@ -179,6 +178,9 @@ const insertSkin = (skin, skincontainer) => {
     let container = document.getElementById(skincontainer);
 
     let item = document.getElementById("item").cloneNode(true);
+    if (skin.idskin === undefined) {
+        skin.idskin = skin.id;
+    }
     item.id = skin.idskin;
     item.style.display = "inherit";
     container.appendChild(item);
@@ -219,6 +221,7 @@ displayOrRedirect().then(() => {
                 transactions.forEach(t => addTransaction(t));
 
                 setCards();
+                getSoldSkins();
             });
 
             var callback = function (res) {
@@ -298,7 +301,6 @@ sellSaveButton.addEventListener("click", () => {
     sendSkin(data);
 });
 
-
 const sendSkin = (skin) => {
     fetch('/api/skin/insert', {
         method: 'POST',
@@ -311,6 +313,7 @@ const sendSkin = (skin) => {
             if (jsonData.success == true) {
                 simpleNotify.notify("Skin aggiunta con successo", undefined);
                 document.getElementById("sellForm").style.display = "none";
+                getSoldSkins();
             } else {
                 simpleNotify.notify("Abbiamo avuto qualche problema, riprova più tardi", 'is-danger');
             }
@@ -323,7 +326,8 @@ const addSoldSkin = (skin) => {
 }
 
 const getSoldSkins = () => {
-    fetch('api/skin/soldBy/' + userId, {
+    document.getElementById("soldSkincontainer").innerHTML = "";
+    fetch('/api/skin/soldBy/' + userId, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

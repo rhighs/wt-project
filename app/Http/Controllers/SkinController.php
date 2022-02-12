@@ -83,7 +83,7 @@ class SkinController extends BaseController
             "name" => "required",
             "price" => "required",
             "image" => "required",
-            "userid" => "required"
+            "userId" => "required"
         ]);
 
         if ($isValidRequest === false) {
@@ -97,13 +97,18 @@ class SkinController extends BaseController
         $skin["name"] = $jsonData["name"];
         $skin["price"] = $jsonData["price"];
         $skin["imagelink"] = $jsonData["image"];
-        $skin["sellerid"] = $jsonData["userid"];
+        $skin["sellerid"] = $jsonData["userId"];
         $skin->save();
 
         $transaction = Transaction::create();
         $transaction["timestamp"] = date("Y-m-d H:i:s");
         $transaction["price"] = $jsonData["price"];
         $transaction->save();
+
+        $skinTransaction = SkinTransaction::create();
+        $skinTransaction["idskin"] = $skin["id"];
+        $skinTransaction["idtransaction"] = $transaction["id"];
+        $skinTransaction->save();
 
         return [
             "success" => true

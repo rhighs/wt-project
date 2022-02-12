@@ -23,6 +23,7 @@
 {
     padding-left: 2%;
 }
+
 #account-global-container
 {
     height: 80%;
@@ -32,6 +33,7 @@
 {
     width: 100%;
 }
+
 .account-transactions
 {
     width:100%;
@@ -138,4 +140,8 @@ table > * {
     height:85%;   /* adjust as per your needs */
     margin-left:-30%;   /* negative half of width above */
     margin-top:-20%;   /* negative half of height above */
+}
+
+.loading-modal {
+    display: none;
 }

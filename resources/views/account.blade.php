@@ -154,7 +154,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="yourSkins" class="content-tab">
+                    <div id="yourSkins" class="content-tab" style="display: none">
                         <div class="container mt-5" id="soldSkincontainer">
                             <div id="sellItem" class="box" style="display: none;">
                                 <div class="columns item">
@@ -215,11 +215,10 @@
 <div class="sell-popup" id="sellForm">
     <div class="container box form">
         <div class="row form-head">
-            <div class="title">Modifica dati account</div>
+            <div class="title">Vendi skin</div>
             <div class="close-button-container is-pulled-right"><button id="sell-close-button" class="button is-dark">Close</button></div>
         </div>
         <div class="column form-data">
-            <b class="title">Vendi skin</b>
             <div class="row">
                 <label for="name"><b>Nome *</b></label><br>
                 <input id="sell-skin-name" class="input" type="text" placeholder="Inserisci nome" name="name" required><br>
