@@ -1,3 +1,4 @@
+<link href="{{ 'assets/css/imgur.min.css' }}" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="{{ url('assets/css/fancycard.css') }}" />
 
 <div class="">
@@ -189,4 +190,6 @@
     </div>
 </div>
 
+<script src="{{ url('assets/js/imgur.min.js') }}"></script>
+<script src="{{ url('assets/js/imgur.conf.js') }}"></script>
 <script src="{{ url('assets/js/account/account.js') }}"></script>

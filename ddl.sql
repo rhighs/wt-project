@@ -31,6 +31,7 @@ CREATE TABLE Skin
   Link3d    VARCHAR,
   Price     BIGINT ,
   Rarity    VARCHAR,
+  SellerId  BIGINT,
   PRIMARY KEY (Id)
 );
 

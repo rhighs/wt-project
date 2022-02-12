@@ -219,5 +219,16 @@ displayOrRedirect().then(() => {
 
                 setCards();
             });
+
+            var callback = function (res) {
+                if (res.success === true) {
+                    console.log(res.data.link);
+                }
+            };
+        
+            let imgur = new Imgur({
+                clientid: imgurClient.clientId,
+                callback: callback
+            });
         });
 });
