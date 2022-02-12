@@ -7,7 +7,7 @@
                     <nav class="tabs is-centered">
                         <div class="container is-centered">
                             <ul>
-                                <li id="image-tab" class="tab is-active" onclick="openTab(event,'image');"><a>Image</a></li>
+                                <li id="image-tab" class="tab is-active" onclick="openTab(event,'image');"><a>Immagine</a></li>
                                 <li id="3d-tab" onclick="openTab(event, '3d');" class="tab"><a>3D</a></li>
                             </ul>
                             <!-- tab content -->
@@ -26,7 +26,7 @@
                             <?php 
                                 $id = $item["id"]; 
                             ?>
-                            <button id="cartButton" class="button is-info is-large" onclick="add('<?php echo $id; ?>');">Add to cart</button>
+                            <button id="cartButton" class="button is-info is-large" onclick="add('<?php echo $id; ?>');">Aggiungi al carrello</button>
                         </div>
                     </div>
                 </div>
