@@ -44,8 +44,9 @@ $router->group(["prefix" => "api"], function () use ($router) {
     $router->post("/testAuth", "UserController@test");
     $router->post("/cart/remove", "CartController@remove");
     $router->post("/cart/checkout", "CartController@checkout");
-    $router->post("/card/{userId}", "TransactionController@index");
+    $router->post("/card/{userId}", "CardUserController@index");
     $router->post("/cart/info/{cartId}", "CartController@cartInfo");
     $router->post("/acceptPayment", "CheckoutController@acceptPayment");
     $router->post("/transaction/{userId}", "TransactionController@index");
+    $router->post("/skin/ownedBy/{userId}", "SkinController@ownedBy");
 });

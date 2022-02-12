@@ -36,25 +36,41 @@ function add(idSkin) {
             simpleNotify.notify("Solo gli utenti registrati possono comprare skin", "is-danger");
         }
 
-        fetch('/api/skin', {
-            method: 'POST',
+        fetch("/api/cart", {
+            method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                "skinId" : idSkin,
-                "userId" : result.id
+                userId: result.id
             })
         }).then(async res => {
             let jsonData = await res.json();
-    
-            if(jsonData.success === true) {
-                simpleNotify.notify("Skin aggiunta al carrello con successo");
+
+            if (jsonData.skins.find(skin => skin.id === parseInt(idSkin)) !== undefined) {
+                simpleNotify.notify("Stai già comprando questa skin, è consentita al massimo una skin per utente", "is-danger");
             } else {
-                simpleNotify.notify("Non siamo riusciti ad aggiungere la skin, riprova più tardi", "is-danger");
+                fetch('/api/skin', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "skinId": idSkin,
+                        "userId": result.id
+                    })
+                }).then(async res => {
+                    let jsonData = await res.json();
+
+                    if (jsonData.success === true) {
+                        simpleNotify.notify("Skin aggiunta al carrello con successo");
+                    } else {
+                        simpleNotify.notify("Non siamo riusciti ad aggiungere la skin, riprova più tardi", "is-danger");
+                    }
+                });
             }
         });
-    });    
+    });
 }
 
 easterEgg();

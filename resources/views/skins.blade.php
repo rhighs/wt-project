@@ -93,5 +93,6 @@
 
 <script>
     let currentPage = '{{ $currentPage }}';
+    updateName(40);
 </script>
 <script src="{{ url('assets/js/skins/orderby.js')}}" type="text/javascript"></script>

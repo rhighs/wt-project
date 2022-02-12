@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\CartSkin;
 use App\Models\Cart;
 use App\Models\Skin;
+use App\Models\Users;
+use App\Models\SkinTransaction;
 
 class SkinController extends BaseController
 {
@@ -37,4 +39,22 @@ class SkinController extends BaseController
             ];
         }
     }   
+
+    public function ownedBy($userId) {
+        if (Users::where("id", "=", $userId)->first() == null) {
+            return [
+                "success" => false
+            ];
+        }
+
+        $skins = collect(SkinTransaction::join("skin", "skin.id", "=", "skintransaction.idskin")
+            ->join("transaction", "transaction.id", "=", "skintransaction.idtransaction")
+            ->join("carduser", "carduser.id", "=", "transaction.idcard")
+            ->where("carduser.iduser", "=", $userId)->get())->toArray();
+
+        return [
+            "success" => true,
+            "skins" => $skins
+        ];
+    }
 }

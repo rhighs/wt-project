@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
     <script src="{{ url('assets/js/auth/auth.js') }}" type="text/javascript"></script>
+    <script src="{{ url('assets/js/nameShortener.js') }}" type="text/javascript"></script>
 </head>
 
 <body>
@@ -71,5 +72,4 @@
     </footer>
 </body>
 <script src="{{ url('assets/js/simpleNotify.js') }}" type="text/javascript"></script>
-<script src="{{ url('assets/js/nameShortener.js') }}" type="text/javascript"></script>
 </html>

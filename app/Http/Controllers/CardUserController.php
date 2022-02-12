@@ -7,7 +7,7 @@ use App\Models\CardUser;
 class CardUserController extends BaseController
 {
     public function index($userId) {
-        $cards = CardUser::where("id", "=", $userId)->toArray();
+        $cards = collect(CardUser::where("iduser", "=", $userId)->get())->toArray();
 
         if (sizeof($cards) == 0) {
             return [

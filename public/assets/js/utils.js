@@ -18,3 +18,20 @@ const displayErrors = (errorList, errorId) => {
         document.getElementById(errorId).innerHTML = "";
     }, 4000 * errorList.length);
 }
+
+const openTab = (evt, tabName) => {
+    let tabs = document.getElementsByClassName("content-tab");
+
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none";
+    }
+
+    let tablinks = document.getElementsByClassName("tab");
+
+    for (let i = 0; i < tabs.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " is-active";
+}

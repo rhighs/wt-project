@@ -9,7 +9,7 @@ use App\Models\CardUser;
 class TransactionController extends BaseController
 {
     public function index($userId) {
-        $cardsUser = CardUser::where("id", "=", $userId)->get();
+        $cardsUser = collect(CardUser::where("iduser", "=", $userId)->get())->toArray();
 
         if (sizeof($cardsUser) == 0 && false) {
             return [
@@ -19,7 +19,9 @@ class TransactionController extends BaseController
 
         $transactions = [];
         foreach ($cardsUser as $card) {
-            $newTransactions = collect(Transaction::join("carduser", "idcard", "=", $card["id"])->where("idcard", "=", $card["id"])->get())->toArray();
+            $newTransactions = collect(Transaction::join("carduser", "idcard", "=", "carduser.id")
+                ->where("idcard", "=", $card["id"])
+                ->get())->toArray();
             $transactions = array_merge($transactions, $newTransactions);
         }
 

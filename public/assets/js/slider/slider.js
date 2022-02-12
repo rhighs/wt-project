@@ -1,15 +1,12 @@
 let btnLeft = document.getElementById('btn-left');
 let btnRight = document.getElementById('btn-right');
 let slideNumber = 0;
-let waitTime = 5000; // milliseconds
+let waitTime = 3000; // milliseconds
 let maxSlides = 3;
 let userSlided = false;
 
 const updateSlide = () => {
 	let start = maxSlides * slideNumber;
-
-    console.log(skins);
-    console.log("Start is:", start);
 
 	for (let i = start; i < start + 3; i++) {
 		let card = document.getElementById('card-' + (i - start));

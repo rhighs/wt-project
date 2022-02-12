@@ -99,26 +99,20 @@ const getCards = () => {
     });
 }
 
-const removeId = (node) => {
-    if(node.hasChildNodes()) {
-        node.childNodes.forEach( child => removeId(child) );
-    } else {
-        node.removeAttribute('id');
-    }
-}
-
 const addTransaction = (t) => {
     transactionsNumber++;
-    let row = document.getElementsByClassName('copyRow').clone(true);
+    let row = document.getElementsByClassName('copyRow')[0].cloneNode(true);
 
     row.classList.remove('copyRow');
     row.querySelector('#transaction-id').innerHTML = transactionsNumber; 
     row.querySelector('#transaction-num').innerHTML = t.id;
-    row.querySelector('#transaction-price').innerHTML = t.price;
+    row.querySelector('#transaction-price').innerHTML = t.price + "€";
     row.querySelector('#transaction-data').innerHTML = t.timestamp;
     row.querySelector('#transaction-card').innerHTML = t.cardnumber;
 
-    removeId(row);
+    row.querySelectorAll("span").forEach(element => element.setAttribute("id", ""));
+    row.querySelectorAll("button").forEach(element => element.setAttribute("id", ""));
+
     document.getElementById('transaction-container').appendChild(row);
 }
 
@@ -155,22 +149,74 @@ let saveFormButton = document.getElementById('save-button');
     simpleNotify.notify("Modifiche effettuate con successo", undefined);
 });
 
+const setCards = () => {
+    fetch("/api/card/" + userId, {
+        method: "POST"
+    }).then(async res => {
+        let jsonData = await res.json();
+
+        let templateCard = document.getElementById("cardcontainer");
+        jsonData.data.forEach((card, i)=> {
+            let cardElement = templateCard.cloneNode(true);
+            let numberString = card.cardnumber.toString();
+            cardElement.querySelector("#user-name-surname");
+            cardElement.querySelector("#number-part1").innerHTML = numberString.substr(0, 4);
+            cardElement.querySelector("#number-part2").innerHTML = numberString.substr(4, 8);
+            cardElement.querySelector("#number-part3").innerHTML = numberString.substr(8, 12);
+            cardElement.querySelector("#number-part4").innerHTML = numberString.substr(12, 16);
+            cardElement.querySelector("#end-date").innerHTML = card.expiry;
+            cardElement.querySelector("#card-seq-number").innerHTML = i + 1;
+            cardElement.querySelector("#cvc").innerHTML = card.cvc;
+            document.getElementById("cards").appendChild(cardElement);
+        })
+        templateCard.remove();
+
+    })
+}
+
+const insertSkin = (skin) => {
+    let container = document.getElementById("skincontainer");
+
+    let item = document.getElementById("item").cloneNode(true);
+    item.id = skin.idskin;
+    item.style.display = "inherit";
+    container.appendChild(item);
+
+    let image = item.querySelector("#skin-image");
+    item.style.cursor = "pointer";
+    item.onclick = () => window.location.href = "/skin/" + skin.idskin;
+
+    let name = item.querySelector("#skin-name");
+    let price = item.querySelector("#skin-price");
+
+    image.setAttribute("src", skin.imagelink);
+    name.innerHTML = skin.name;
+    price.innerHTML = skin.price + " €";
+}
+
 redirectIfNotAuthenticated();
 testAuth()
     .then(user => {
-
         userId = user.id;
         loadData(user);
+
+        fetch("/api/skin/ownedBy/" + user.id, {
+            method: "POST"
+        }).then(async res => {
+            let jsonData = await res.json();
+            jsonData.skins.forEach(item => insertSkin(item));
+        });
 
         fetch("/api/transaction/" + user.id, {
             method: "POST"
         }).then(async result => {
             let jsonData = await result.json();
-            console.log(jsonData);
-            
+
             if (jsonData.success == false) { return; }
-            
+
             let transactions = jsonData.data;
             transactions.forEach(t => addTransaction(t));
+
+            setCards();
         });
     });
