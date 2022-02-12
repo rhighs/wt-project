@@ -54,7 +54,7 @@ table > * {
     font-size: 30px;
 }
 
-#modifyCredentials {
+#modifyCredentials, #sellSkin {
     margin-top: 2%;
     width: 100%;
 }
@@ -70,44 +70,44 @@ table > * {
     margin-top:-20%;   /* negative half of height above */
 }
 
-.form {
+#modifyForm .form {
     width: 70%;
 }
 
-.form-head {
+#modifyForm .form-head {
     width: 100%;
     display: inline-block;
 }
 
-.form-head > * {
+#modifyForm .form-head > * {
     float: left;
     margin: 3%;
 }
 
-.form > .form-data {
+#modifyForm .form > .form-data {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.form-data .save-row {
+#modifyForm .form-data .save-row {
     text-align: center;
 }
 
-.form-data input {
+#modifyForm .form-data input {
     margin-top: 1%;
     margin-bottom: 1%;
 }
 
-.form-data button {
+#modifyForm .form-data button {
     margin-top: 5%;
 }
 
-.form-data #error-list {
+#skin-error-list, #error-list {
     color: red;
 }
 
-table {
+#modifyForm table {
     width: 85%;
     border-radius: 7%;
     margin: 3% auto 3% auto;
@@ -127,4 +127,15 @@ table {
     width: 50%;
     height: 50%;
     border-radius: 50%;
+}
+
+#sellForm {
+    display: none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:85%;  /* adjust as per your needs */
+    height:85%;   /* adjust as per your needs */
+    margin-left:-30%;   /* negative half of width above */
+    margin-top:-20%;   /* negative half of height above */
 }

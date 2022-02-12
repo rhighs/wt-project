@@ -232,3 +232,73 @@ displayOrRedirect().then(() => {
             });
         });
 });
+
+
+const sellFormCheck = () => {
+    let name = document.getElementById('sell-skin-name').value;
+    let price = document.getElementById('sell-skin-price').value;
+    let img = document.getElementById('sell-skin-image').value;
+
+    let voids = [];
+    let errors = [];
+    if (!name) {
+        voids.push('nome');
+    }
+    if (!price) {
+        voids.push('prezzo');
+    }
+    if (!img) {
+        voids.push('immagine');
+    }
+
+    if (voids.length > 0) {
+        errors.push("I campi " + voids.join(', ') + " sono obbligatori");
+    }
+
+    if (errors.length > 0) {
+        displayErrors(errors, 'skin-error-list');
+        return false;
+    }
+    return true;
+}
+
+const clearSellForm = () => {
+    document.getElementById('sell-skin-name').value = "";
+    document.getElementById('sell-skin-price').value = "";
+    document.getElementById('sell-skin-image').value = "";
+}
+
+let sellCloseButton = document.getElementById('sell-close-button');
+let sellSaveButton = document.getElementById('sell-save-button');
+
+sellCloseButton.addEventListener("click", () => {
+    document.getElementById("sellForm").style.display = "none";
+    clearSellForm();
+});
+
+let sellSkinButton = document.getElementById('sellSkin');
+sellSkinButton.addEventListener("click", () => {
+    document.getElementById('sellForm').style.display = "block";
+});
+
+sellSaveButton.addEventListener("click", () => {
+    if(!sellFormCheck()) { return; }
+
+    let name = document.getElementById('sell-skin-name').value;
+    let price = document.getElementById('sell-skin-price').value;
+    let img = document.getElementById('sell-skin-image').value;
+
+    let data = {
+        name: name,
+        price: price,
+        image: img
+    }
+    sendSkin(data);
+    clearSellForm();
+    simpleNotify.notify("Skin aggiunta con successo", undefined);
+});
+
+
+const sendSkin = (skin) => {
+
+}

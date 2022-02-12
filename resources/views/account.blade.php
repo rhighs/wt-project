@@ -42,7 +42,14 @@
                                             </span></b>
                                     </div>
                                     <div class="row">
-                                        <button id="modifyCredentials" class="button is-dark">Modifica</button>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <button id="modifyCredentials" class="button is-dark">Modifica</button>
+                                            </div>
+                                            <div class="column">
+                                                <button id="sellSkin" class="button is-dark">Vendi skin</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -192,4 +199,35 @@
 
 <script src="{{ url('assets/js/imgur.min.js') }}"></script>
 <script src="{{ url('assets/js/imgur.conf.js') }}"></script>
+<div class="sell-popup" id="sellForm">
+    <div class="container box form">
+        <div class="row form-head">
+            <div class="title">Modifica dati account</div>
+            <div class="close-button-container is-pulled-right"><button id="sell-close-button" class="button is-dark">Close</button></div>
+        </div>
+        <div class="column form-data">
+            <b class="title">Vendi skin</b>
+            <div class="row">
+                <label for="name"><b>Nome *</b></label><br>
+                <input id="sell-skin-name" class="input" type="text" placeholder="Inserisci nome" name="name" required><br>
+            </div>
+            <div class="row">
+                <label for="skin"><b>Price *</b></label><br>
+                <input id="sell-skin-price" class="input" type="text" placeholder="Inserisci prezzo" name="price" required><br>
+            </div>
+            <div class="row">
+                <label for="image"><b>Image *</b></label><br>
+                <div id="sell-skin-image" class="dropzone" type="text" placeholder="Inserisci immagine" name="immagine" required></div><br>
+            </div>
+
+            <div class="row error-row">
+                <p id="skin-error-list"></p>
+            </div>
+            <div class="row save-row">
+                <button id="sell-save-button" class="button is-dark">Save</button><br>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="{{ url('assets/js/account/account.js') }}"></script>
