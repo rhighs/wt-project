@@ -64,6 +64,7 @@
                         <li id="image-tab" class="tab is-active" onclick="openTab(event,'skins');"><a>Le tue Skin</a></li>
                         <li id="transactions-tab" onclick="openTab(event, 'transactions');" class="tab"><a>Transazioni</a></li>
                         <li id="card-tab" onclick="openTab(event, 'cards');" class="tab"><a>Le tue carte</a></li>
+                        <li id="yourSkin-tab" onclick="openTab(event, 'yourSkins');" class="tab"><a>Skin in vendita</a></li>
                     </ul>
                     <!-- Tab 1 -->
                     <div id="skins" class="content-tab">
@@ -153,6 +154,21 @@
                             </div>
                         </div>
                     </div>
+                    <div id="yourSkins" class="content-tab">
+                        <div class="container mt-5" id="skincontainer">
+                            <div id="sellItem" class="box" style="display: none;">
+                                <div class="columns item">
+                                    <div class="column is-2">
+                                        <figure class="image is-128x128">
+                                            <img id="skin-image" src="https://bulma.io/images/placeholders/128x128.png">
+                                        </figure>
+                                    </div>
+                                    <div class="column is-6" style="margin-bottom: auto; margin-top: auto;"><span id="skin-name" class="subtitle">Walasljdaljfa</span></div>
+                                    <div class="column is-2" style="margin-bottom: auto; margin-top: auto;"><span id="skin-price"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -196,9 +212,6 @@
         </div>
     </div>
 </div>
-
-<script src="{{ url('assets/js/imgur.min.js') }}"></script>
-<script src="{{ url('assets/js/imgur.conf.js') }}"></script>
 <div class="sell-popup" id="sellForm">
     <div class="container box form">
         <div class="row form-head">
@@ -230,4 +243,7 @@
     </div>
 </div>
 
+
+<script src="{{ url('assets/js/imgur.min.js') }}"></script>
+<script src="{{ url('assets/js/imgur.conf.js') }}"></script>
 <script src="{{ url('assets/js/account/account.js') }}"></script>

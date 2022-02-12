@@ -1,5 +1,6 @@
 let userId;
 let transactionsNumber = 0;
+let imgLink = undefined;
 
 const loadData = (user) => {
     let userName = document.getElementById('user-name');
@@ -222,7 +223,7 @@ displayOrRedirect().then(() => {
 
             var callback = function (res) {
                 if (res.success === true) {
-                    console.log(res.data.link);
+                    imgLink = res.data.link;
                 }
             };
         
@@ -247,7 +248,7 @@ const sellFormCheck = () => {
     if (!price) {
         voids.push('prezzo');
     }
-    if (!img) {
+    if (!imgLink) {
         voids.push('immagine');
     }
 
@@ -265,7 +266,7 @@ const sellFormCheck = () => {
 const clearSellForm = () => {
     document.getElementById('sell-skin-name').value = "";
     document.getElementById('sell-skin-price').value = "";
-    document.getElementById('sell-skin-image').value = "";
+    imgLink = undefined;
 }
 
 let sellCloseButton = document.getElementById('sell-close-button');
@@ -286,19 +287,52 @@ sellSaveButton.addEventListener("click", () => {
 
     let name = document.getElementById('sell-skin-name').value;
     let price = document.getElementById('sell-skin-price').value;
-    let img = document.getElementById('sell-skin-image').value;
+    let img = imgLink;
 
     let data = {
+        userId: userId,
         name: name,
         price: price,
         image: img
     }
     sendSkin(data);
-    clearSellForm();
-    simpleNotify.notify("Skin aggiunta con successo", undefined);
 });
 
 
 const sendSkin = (skin) => {
+    fetch('/api/skin/insert', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(skin)
+    }).then( async res => {
+            let jsonData = await res.json();
+            if (jsonData.success == true) {
+                simpleNotify.notify("Skin aggiunta con successo", undefined);
+                document.getElementById("sellForm").style.display = "none";
+            } else {
+                simpleNotify.notify("Abbiamo avuto qualche problema, riprova più tardi", 'is-danger');
+            }
+            clearSellForm();
+        });
+}
 
+const addSoldSkin = () => {
+
+}
+
+const getSoldSkins = () => {
+    fetch('api/skin/sold/' + userId, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then( async res => {
+        let jsonData = await res.json();
+        if (jsonData.success == true) {
+            let soldSkins = jsonData.data;
+            soldSkins.forEach( skin => addSoldSkin(skin) );
+        }
+    });
 }
