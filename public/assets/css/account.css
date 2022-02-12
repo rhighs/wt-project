@@ -165,3 +165,24 @@ table > * {
 #sellForm .form-data > .row {
     margin-bottom: 3%;
 }
+
+#transactions {
+    white-space: normal;
+}
+
+#tabPages {
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow-x: inherit;
+    white-space: normal !important;
+}
+
+#tabPages div ul {
+    margin: auto !important;
+}
+
+.is-active {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}

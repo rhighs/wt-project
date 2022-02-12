@@ -58,9 +58,9 @@
                 </div>
             </section>
 
-            <nav class="tabs is-centered">
-                <div class="container is-centered">
-                    <ul class="mb-6">
+            <nav class="tabs is-centered" id="tabPages">
+                <div class="container is-centered is-large">
+                    <ul class="">
                         <li id="image-tab" class="tab is-active" onclick="openTab(event,'skins');"><a>Le tue Skin</a></li>
                         <li id="transactions-tab" onclick="openTab(event, 'transactions');" class="tab"><a>Transazioni</a></li>
                         <li id="card-tab" onclick="openTab(event, 'cards');" class="tab"><a>Le tue carte</a></li>
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="display: none" id="transactions" class="columns content-tab">
+                    <div style="display: none" id="transactions" class="content-tab">
                         <div class="column">
                             <table class="table transaction-table">
                                 <thead>
