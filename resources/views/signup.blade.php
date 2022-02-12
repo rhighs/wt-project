@@ -1,7 +1,7 @@
 <section class="hero is-medium">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title" style="text-align: center;" >Sign Up</h1>
+            <h1 class="title" style="text-align: center;" >Registrati</h1>
             <div class="columns is-justify-content-center">
                 <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
                     <div class="box p-5">

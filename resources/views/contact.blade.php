@@ -3,13 +3,27 @@
 <script src="{{ url('assets/js/utils.js')}}" type="text/javascript"></script>
 
 <section class="hero is-medium">
+	<section style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url({{ url('assets/img/contact.jpg') }})" class="hero is-medium is-info">
+    	<div class="hero-body">
+        	<div class="container is-centered">
+            	<p class="title main-title">
+					Contattaci!
+            	</p>
+            	<p class="subtitle main-subtitle">
+					Compila il form qui sotto e saremo felici di risponderti!
+            	</p>
+        	</div>
+    	</div>
+	</section>
 	<div class="hero-body">
 		<div class="container has-text-centered">
 			<div class="columns is-8 is-variable ">
 				<div class="column is-two-thirds has-text-left">
-					<h1 class="title is-1">Contattaci!</h1>
-					<p class="is-size-4">Vienici a trovare in sede!</p>
-					<p class="is-size-4">Altrimenti compila il form qui di fianco e saremo felici di risponderti!</p>
+					<p class="is-size-4">
+                    	Altrimenti vieni a trovarci in <a href="https://www.google.it/maps/place/Via+Antonio+Labriola,+80145+Napoli+NA/@40.8972755,14.2373719,17z/data=!3m1!4b1!4m5!3m4!1s0x133b07b5012776e5:0xe32b60b88ac1986d!8m2!3d40.8972715!4d14.2395606">
+							sede</a>!
+						<br>Saremo felici di accoglierti e potrai conoscere di persona i ragazzi che sono dietro a questo splendido progetto 
+                	</p>
 					<br></br>
 					<div id="map"></div>
 
