@@ -13,7 +13,7 @@
         <div class="columns item">
             <div class="column is-2">
                 <figure class="image is-128x128">
-                    <img id="skin-image" src="https://bulma.io/images/placeholders/128x128.png">
+                    <img id="skin-image" alt="skin image" src="https://bulma.io/images/placeholders/128x128.png">
                 </figure>
             </div>
             <div class="column is-6" style="margin-bottom: auto; margin-top: auto;"><span id="skin-name" class="subtitle">Walasljdaljfa</span></div>

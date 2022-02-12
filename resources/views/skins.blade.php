@@ -51,7 +51,7 @@
                     <a href="/skin/{{ $skins[$i]["id"] }}">
                         <div class="card-image">
                             <figure class="image is-1by1">
-                                <img src="{{ $skins[$i]["imagelink"] }}" alt="Image">
+                                <img src="{{ $skins[$i]["imagelink"] }}" alt="skin image">
                             </figure>
                         </div>
                         <div class="card-link">
