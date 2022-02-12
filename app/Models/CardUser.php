@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 function generateCardUserId()
 {
-    $maxIdValue = 9999999999999999;
+    $maxIdValue = 999999999;
     $id = rand(0, $maxIdValue);
 
     while (CardUser::where("id", "=", $id)->first() != null) {

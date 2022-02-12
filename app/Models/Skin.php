@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 function generateSkinId() {
-    $maxIdValue = 9999999999999999;
+    $maxIdValue = 999999999;
     $id = rand(0, $maxIdValue);
 
     while (Skin::where("id", "=", $id)->first() != null) {

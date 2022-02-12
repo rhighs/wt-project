@@ -27,10 +27,10 @@ const fetchSkins = async (maxItems) => {
         newItems = newItems.filter(async newItem => {
             return await fetch(newItem.img)
                 .then(response => response.status === 200);
-        }).filter(async newItem => {
+        })/*.filter(async newItem => {
             return await fetch(newItem["3d"])
                 .then(response => response.status === 200);
-        });
+        });*/
 
         foundItems = [...foundItems, ...newItems];
         console.log("Items fetched: ", foundItems.length);

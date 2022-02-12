@@ -93,7 +93,7 @@ class CheckoutController extends BaseController
         Mail::send([], $data, function($message) use ($user, $transaction) {
            $message->to($user["email"], "SkuSkins")->subject("Resoconto dell'ultimo acquisto");
            $randomString = "Grazie per aver comprato da SKUSKINS, aspettiamo il tuo ritorno!!\n";
-           $message->setBody("Odine n. " . $transaction["id"] . "\n" . "Totale: € " . $transaction["price"] . "\n\n\n" . $randomString);
+           $message->setBody("Odine n. " . $transaction["id"] . "\n" . "Totale: € " . ($transaction["price"] * -1) . "\n\n\n" . $randomString);
            $message->from('skuskins@gmail.com', 'SKUSKINS srl.');
         });
 

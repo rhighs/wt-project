@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class CartController extends BaseController
 {
     public function getSkin(Request $request) {
-        $userCartId = Cart::select("id")->where("iduser", "=", $request->input("userId"))->first();
+        $userCartId = Cart::where("iduser", "=", $request->input("userId"))->first();
         $skinId = CartSkin::select("idskin")->where("idcart", "=", $userCartId["id"])->get();
         $skins = array();
 
