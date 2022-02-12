@@ -10,29 +10,25 @@
                         <div class="columns user-data">
                             <div class="column column-profile">
                                 <div class="container">
-                                    <img id="profile-picture" src="{{ url('assets/img/profile_image.jpg') }}">
+                                    <img id="profile-picture" src="{{ url('assets/img/profile_image.jpg') }}" alt="Profile picture">
                                 </div>
                             </div>
                             <div class="column column-data">
                                 <div class="container box">
                                     <div class="row" id="userInfo"><b>
                                             <span id="user-name">
-                                                <!-- Nome qui -->
                                             </span>
                                             <span id="user-surname">
-                                                <!-- surname qui -->
                                             </span>
                                         </b></div>
                                     <div class="row">
                                         ID Cliente:
                                         <b><span id="user-id">
-                                                <!-- id qui -->
                                             </span></b>
                                     </div>
                                     <div class="row">
                                         E-mail:
                                         <b><span id="user-email">
-                                                <!-- email qui -->
                                             </span></b>
                                     </div>
                                     <div class="row">
@@ -57,7 +53,6 @@
                     </div>
                 </div>
             </section>
-
             <nav class="tabs is-centered">
                 <div class="container is-centered">
                     <ul class="mb-6">
@@ -66,14 +61,13 @@
                         <li id="card-tab" onclick="openTab(event, 'cards');" class="tab"><a>Le tue carte</a></li>
                         <li id="yourSkin-tab" onclick="openTab(event, 'yourSkins');" class="tab"><a>Skin in vendita</a></li>
                     </ul>
-                    <!-- Tab 1 -->
                     <div id="skins" class="content-tab">
                         <div class="container mt-5" id="skincontainer">
                             <div id="item" class="box" style="display: none;">
                                 <div class="columns item">
                                     <div class="column is-2">
                                         <figure class="image is-128x128">
-                                            <img id="skin-image" src="https://bulma.io/images/placeholders/128x128.png">
+                                            <img id="skin-image" alt="skin image" src="https://bulma.io/images/placeholders/128x128.png">
                                         </figure>
                                     </div>
                                     <div class="column is-6" style="margin-bottom: auto; margin-top: auto;"><span id="skin-name" class="subtitle">Walasljdaljfa</span></div>
@@ -106,7 +100,6 @@
                             </table>
                         </div>
                     </div>
-                    <!-- Tab 3 -->
                     <div id="cards" class="content-tab" style="display: none;">
                         <div id="cardcontainer" class="box">
                             <div class="title">Carta n. <span id="card-seq-number"></span></div>
@@ -114,7 +107,7 @@
                                 <div class="flip">
                                     <div class="front">
                                         <div class="strip-bottom"></div>
-                                        <img class="logo" width="80" height="80" viewbox="0 0 17.5 16.2" src="{{ url('assets/img/logo.png') }}"></img>
+                                        <img class="logo" alt="logo" width="80" height="80" viewbox="0 0 17.5 16.2" src="{{ url('assets/img/logo.png') }}"></img>
                                         <div class="investor">SKUSKINS</div>
                                         <div class="chip">
                                             <div class="chip-line"></div>
@@ -160,7 +153,7 @@
                                 <div class="columns item">
                                     <div class="column is-2">
                                         <figure class="image is-128x128">
-                                            <img id="skin-image" src="https://bulma.io/images/placeholders/128x128.png">
+                                            <img id="skin-image" alt="skin image" src="https://bulma.io/images/placeholders/128x128.png">
                                         </figure>
                                     </div>
                                     <div class="column is-6" style="margin-bottom: auto; margin-top: auto;"><span id="skin-name" class="subtitle">Walasljdaljfa</span></div>

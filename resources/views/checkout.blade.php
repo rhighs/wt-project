@@ -35,7 +35,7 @@
                 <!-- Card header -->
                 <header class="text-center container px-5 pb-5">
                     <!-- Avatar -->
-                    <img src="{{ url('assets/img/logo.png') }}" class="inline-flex -mt-9 w-[128px] h-[128px] fill-current rounded-full box-content mb-3" viewBox="0 0 72 72">
+                    <img alt="logo image" src="{{ url('assets/img/logo.png') }}" class="inline-flex -mt-9 w-[128px] h-[128px] fill-current rounded-full box-content mb-3" viewBox="0 0 72 72">
                     </img>
                     <!-- Card name -->
                     <h3 class="text-xl font-bold text-gray-900 mb-1">Fatturato da SkuSkins s.r.l.</h3>

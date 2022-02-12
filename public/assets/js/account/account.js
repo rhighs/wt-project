@@ -102,13 +102,24 @@ const getCards = () => {
 const addTransaction = (t) => {
     transactionsNumber++;
     let row = document.getElementsByClassName('copyRow')[0].cloneNode(true);
+    let appendId = makeid(40);
 
     row.classList.remove('copyRow');
-    row.querySelector('#transaction-id').innerHTML = transactionsNumber; 
-    row.querySelector('#transaction-num').innerHTML = t.id;
-    row.querySelector('#transaction-price').innerHTML = t.price + "€";
-    row.querySelector('#transaction-data').innerHTML = t.timestamp;
-    row.querySelector('#transaction-card').innerHTML = t.cardnumber;
+    let transactionId = row.querySelector('#transaction-id');
+    transactionId.innerHTML = transactionsNumber; 
+    transactionId.id += appendId;
+    let transactionNum = row.querySelector('#transaction-num');
+    transactionNum.innerHTML = t.id;
+    transactionNum.id += appendId;
+    let transactionPrice = row.querySelector('#transaction-price'); 
+    transactionPrice.innerHTML = t.price + "€";
+    transactionPrice.id += appendId;
+    let transactionTimestamp = row.querySelector('#transaction-data');
+    transactionTimestamp.innerHTML = t.timestamp;
+    transactionTimestamp.id += appendId;
+    let transactionCardNumber = row.querySelector('#transaction-card');
+    transactionCardNumber.innerHTML = t.cardnumber;
+    transactionCardNumber.id += appendId;
 
     row.querySelectorAll("span").forEach(element => element.setAttribute("id", ""));
     row.querySelectorAll("button").forEach(element => element.setAttribute("id", ""));
@@ -157,16 +168,31 @@ const setCards = () => {
 
         let templateCard = document.getElementById("cardcontainer");
         jsonData.data.forEach((card, i)=> {
+            let appendId = makeid(40);
             let cardElement = templateCard.cloneNode(true);
             let numberString = card.cardnumber.toString();
             cardElement.querySelector("#user-name-surname");
-            cardElement.querySelector("#number-part1").innerHTML = numberString.substr(0, 4);
-            cardElement.querySelector("#number-part2").innerHTML = numberString.substr(4, 8);
-            cardElement.querySelector("#number-part3").innerHTML = numberString.substr(8, 12);
-            cardElement.querySelector("#number-part4").innerHTML = numberString.substr(12, 16);
-            cardElement.querySelector("#end-date").innerHTML = card.expiry;
-            cardElement.querySelector("#card-seq-number").innerHTML = i + 1;
-            cardElement.querySelector("#cvc").innerHTML = card.cvc;
+            let np1 = cardElement.querySelector("#number-part1");
+            np1.innerHTML = numberString.substr(0, 4);
+            np1.id += appendId;
+            np2 = cardElement.querySelector("#number-part2");
+            np2.innerHTML = numberString.substr(4, 8);
+            np2.id += appendId;
+            let np3 = cardElement.querySelector("#number-part3");
+            np3.innerHTML = numberString.substr(8, 12);
+            np3.id += appendId;
+            let np4 = cardElement.querySelector("#number-part4");
+            np4.innerHTML = numberString.substr(12, 16);
+            np4.id += appendId;
+            let endDate = cardElement.querySelector("#end-date");
+            endDate.innerHTML = card.expiry;
+            endDate.id += appendId;
+            let seqNo = cardElement.querySelector("#card-seq-number");
+            seqNo.innerHTML = i + 1;
+            seqNo.id += appendId;
+            let cvc = cardElement.querySelector("#cvc");
+            cvc.innerHTML = card.cvc;
+            cvc.id += appendId;
             document.getElementById("cards").appendChild(cardElement);
         })
         templateCard.remove();
@@ -185,16 +211,21 @@ const insertSkin = (skin, skincontainer) => {
     item.style.display = "inherit";
     container.appendChild(item);
 
+    let appendId = makeid(40);
     let image = item.querySelector("#skin-image");
+    image.id += appendId;
+    image.setAttribute("alt", "Skin n. " + appendId);
     item.style.cursor = "pointer";
     item.onclick = () => window.location.href = "/skin/" + skin.idskin;
 
     let name = item.querySelector("#skin-name");
+    name.id += appendId;
     let price = item.querySelector("#skin-price");
 
     image.setAttribute("src", skin.imagelink);
     name.innerHTML = skin.name;
     price.innerHTML = skin.price + " €";
+    price.id += appendId;
 }
 
 displayOrRedirect().then(() => {
