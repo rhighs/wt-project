@@ -194,29 +194,30 @@ const insertSkin = (skin) => {
     price.innerHTML = skin.price + " €";
 }
 
-redirectIfNotAuthenticated();
-testAuth()
-    .then(user => {
-        userId = user.id;
-        loadData(user);
+displayOrRedirect().then(() => {
+    testAuth()
+        .then(user => {
+            userId = user.id;
+            loadData(user);
 
-        fetch("/api/skin/ownedBy/" + user.id, {
-            method: "POST"
-        }).then(async res => {
-            let jsonData = await res.json();
-            jsonData.skins.forEach(item => insertSkin(item));
+            fetch("/api/skin/ownedBy/" + user.id, {
+                method: "POST"
+            }).then(async res => {
+                let jsonData = await res.json();
+                jsonData.skins.forEach(item => insertSkin(item));
+            });
+
+            fetch("/api/transaction/" + user.id, {
+                method: "POST"
+            }).then(async result => {
+                let jsonData = await result.json();
+
+                if (jsonData.success == false) { return; }
+
+                let transactions = jsonData.data;
+                transactions.forEach(t => addTransaction(t));
+
+                setCards();
+            });
         });
-
-        fetch("/api/transaction/" + user.id, {
-            method: "POST"
-        }).then(async result => {
-            let jsonData = await result.json();
-
-            if (jsonData.success == false) { return; }
-
-            let transactions = jsonData.data;
-            transactions.forEach(t => addTransaction(t));
-
-            setCards();
-        });
-    });
+});

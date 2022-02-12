@@ -190,4 +190,3 @@
 </div>
 
 <script src="{{ url('assets/js/account/account.js') }}"></script>
-<script src="{{ url('assets/js/utils.js') }}"></script>

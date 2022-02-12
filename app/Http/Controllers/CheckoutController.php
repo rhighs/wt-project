@@ -6,11 +6,13 @@ use App\Models\CardUser;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
-use App\Models\SkinTransaction;
-use App\Models\CartSkin;
 use App\Models\Skin;
 use App\Models\Cart;
+use App\Models\Users;
+use App\Models\CartSkin;
 use App\Models\Transaction;
+use App\Models\SkinTransaction;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends BaseController
 {
@@ -83,6 +85,17 @@ class CheckoutController extends BaseController
             $skinTransaction["idskin"] = $skinInCart["idskin"];
             $skinTransaction->save();
         }
+
+        $user = Users::where("id", "=", $userId)->first();
+
+        $data = array('name'=> "SKUSKINS srl.");
+   
+        Mail::send([], $data, function($message) use ($user, $transaction) {
+           $message->to($user["email"], "SkuSkins")->subject("Resoconto dell'ultimo acquisto");
+           $randomString = "Grazie per aver comprato da SKUSKINS, aspettiamo il tuo ritorno!!\n";
+           $message->setBody("Odine n. " . $transaction["id"] . "\n" . "Totale: € " . $transaction["price"] . "\n\n\n" . $randomString);
+           $message->from('skuskins@gmail.com', 'SKUSKINS srl.');
+        });
 
         return [
             "success" => true

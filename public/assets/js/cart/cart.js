@@ -91,4 +91,4 @@ const createCart = () => {
     });
 }
 
-createCart();
+displayOrRedirect().then(() => createCart());

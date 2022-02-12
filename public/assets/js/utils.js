@@ -35,3 +35,17 @@ const openTab = (evt, tabName) => {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " is-active";
 }
+
+const displayOrRedirect = async (redirectUrl) => {
+    document.body.classList.add("not-visible");
+    let result = await testAuth();
+
+    if (result !== undefined) {
+        document.body.classList.remove("not-visible");
+    } else {
+        if (redirectUrl === undefined) {
+            redirectUrl = "/";
+        }
+        window.location.href = redirectUrl;
+    }
+}

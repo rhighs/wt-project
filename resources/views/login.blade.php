@@ -27,4 +27,3 @@
     </div>
 </section>
 <script type="text/javascript" src="{{ url('assets/js/login/login.js') }}"></script>
-<script src="{{ url('assets/js/utils.js')}}" type="text/javascript"></script>

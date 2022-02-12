@@ -36,4 +36,3 @@
 </section>
 
 <script src="{{ url('assets/js/signup/signup.js')}}" type="text/javascript"></script>
-<script src="{{ url('assets/js/utils.js')}}" type="text/javascript"></script>

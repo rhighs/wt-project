@@ -1,6 +1,5 @@
 <script src="{{ url('assets/js/contact/map.js') }}"></script>
 <script src="{{ url('assets/js/contact/contact.js') }}"></script>
-<script src="{{ url('assets/js/utils.js')}}" type="text/javascript"></script>
 
 <section class="hero is-medium">
 	<section style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url({{ url('assets/img/contact.jpg') }})" class="hero is-medium is-info">
