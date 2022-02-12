@@ -259,6 +259,9 @@ const sellFormCheck = () => {
         errors.push("I campi " + voids.join(', ') + " sono obbligatori");
     }
 
+    if (isNaN(parseInt(price))) {
+        errors.push('prezzo non valido');
+    }
     if (errors.length > 0) {
         displayErrors(errors, 'skin-error-list');
         return false;

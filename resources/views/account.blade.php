@@ -58,7 +58,7 @@
                 </div>
             </section>
 
-            <nav class="tabs is-centered is-large">
+            <nav class="tabs is-centered">
                 <div class="container is-centered">
                     <ul class="mb-6">
                         <li id="image-tab" class="tab is-active" onclick="openTab(event,'skins');"><a>Le tue Skin</a></li>
@@ -184,24 +184,24 @@
             <b class="title">Dati personali:</b>
             <div class="row">
                 <label for="name"><b>Nome *</b></label><br>
-                <input id="form-name" class="input" type="text" placeholder="Enter name" name="name" required><br>
+                <input id="form-name" class="input" type="text" placeholder="Inserisci nome" name="name" required><br>
             </div>
             <div class="row">
                 <label for="surname"><b>Cognome *</b></label><br>
-                <input id="form-surname" class="input" type="text" placeholder="Enter surname" name="surname" required><br>
+                <input id="form-surname" class="input" type="text" placeholder="Inserisci conome" name="surname" required><br>
             </div>
             <br><b class="title">Dati di accesso:</b>
             <div class="row">
                 <label for="email"><b>Email *</b></label><br>
-                <input id="form-email" class="input" type="text" placeholder="Enter Email" name="email" required><br>
+                <input id="form-email" class="input" type="text" placeholder="Inserisci email" name="email" required><br>
             </div>
             <div class="row">
                 <label for="psw"><b>Password *</b></label><br>
-                <input id="form-psw" class="input" type="password" placeholder="Enter Password" name="psw" required><br>
+                <input id="form-psw" class="input" type="password" placeholder="Inserisci password" name="psw" required><br>
             </div>
             <div class="row">
                 <label for="psw"><b>Confirm Password *</b></label><br>
-                <input id="form-confirm-psw" class="input" type="password" placeholder="Confirm Password" name="confirm-psw" required><br>
+                <input id="form-confirm-psw" class="input" type="password" placeholder="Inserisci password di conferma" name="confirm-psw" required><br>
             </div>
             <div class="row error-row">
                 <p id="error-list"></p>
@@ -218,7 +218,7 @@
             <div class="title">Vendi skin</div>
             <div class="close-button-container is-pulled-right"><button id="sell-close-button" class="button is-dark">Close</button></div>
         </div>
-        <div class="column form-data">
+        <div class="row column form-data">
             <div class="row">
                 <label for="name"><b>Nome *</b></label><br>
                 <input id="sell-skin-name" class="input" type="text" placeholder="Inserisci nome" name="name" required><br>
